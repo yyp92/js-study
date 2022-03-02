@@ -1,3 +1,8 @@
+/**
+ * 深克隆
+ * https://cloud.tencent.com/developer/article/1497418
+ */
+
 const mapTag = '[object Map]';
 const setTag = '[object Set]';
 const arrayTag = '[object Array]';
