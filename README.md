@@ -2,3 +2,4 @@
 
 ## 待办事项
 - [ ] deepClone
+- [ ] throttle
