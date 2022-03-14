@@ -44,9 +44,9 @@ const aaa: OmitThisParameter<typeof getUserInfo2> = (id:string)=>{}
 
 
 // infer
-type Foo<T> = T extends { a: infer U; b: infer U } ? U : never;
-type T10 = Foo<{ a: string; b: string }>; // T10类型为 string
-type T11 = Foo<{ a: string; b: number }>; // T11类型为 string | number
+// type Foo<T> = T extends { a: infer U; b: infer U } ? U : never;
+// type T10 = Foo<{ a: string; b: string }>; // T10类型为 string
+// type T11 = Foo<{ a: string; b: number }>; // T11类型为 string | number
 
 
 // typeof
