@@ -48,9 +48,9 @@ type U1 = UnionToIntersection<{ name: string } | { age: number }> // { name: str
 /**
  * 都知道infer声明都是只能出现在extends子语句中。但是，在协变的位置上，同一类型变量的多个候选类型会被推断为联合类型：
  */
- type Foo<T> = T extends { a: infer U, b: infer U } ? U : never;
- type T10 = Foo<{ a: string, b: string }>;  // string
- type T11 = Foo<{ a: string, b: number }>;  // string | number
+ type UnionFoo<T> = T extends { a: infer U, b: infer U } ? U : never;
+ type T10 = UnionFoo<{ a: string, b: string }>;  // string
+ type T11 = UnionFoo<{ a: string, b: number }>;  // string | number
 
 
 /**

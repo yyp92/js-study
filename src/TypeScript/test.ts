@@ -13,9 +13,9 @@ type UserInfoT1 = Pick<UserInfo, "name">
 type UserInfoT2 = Exclude<"name" | "age", "name">;
 
 // 和 Exclude 恰好相反。
-type T1 = "name" | "age" | "hob";
-type T2 = "name" | "age";
-type UserInfoT3 = Extract<T1, T2>;
+type ExtractT1 = "name" | "age" | "hob";
+type ExtractT2 = "name" | "age";
+type UserInfoT3 = Extract<ExtractT1, ExtractT2>;
 
 // NonNullable
 let demo3: NonNullable<undefined | number>;

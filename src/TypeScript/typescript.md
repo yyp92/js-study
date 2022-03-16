@@ -52,5 +52,42 @@ User 接口为 {
 */
 ```
 
+
+# 关键字
 ## infer
 [infer](https://juejin.cn/post/6844904170353328135)
+
+
+## unknown
+https://juejin.cn/post/6844903866073350151
+### 联合类型中的 unknown 类型
+```ts
+type UnionType1 = unknown | null;       // unknown
+type UnionType2 = unknown | undefined;  // unknown
+type UnionType3 = unknown | string;     // unknown
+type UnionType4 = unknown | number[];   // unknown
+type UnionType5 = unknown | any;  // any
+```
+
+### 交叉类型中的 unknown 类型
+```ts
+type IntersectionType1 = unknown & null;       // null
+type IntersectionType2 = unknown & undefined;  // undefined
+type IntersectionType3 = unknown & string;     // string
+type IntersectionType4 = unknown & number[];   // number[]
+type IntersectionType5 = unknown & any;        // any
+```
+
+
+## never
+### 联合类型中的 never 类型
+```ts
+type T3 = number | never;   // number
+type T4 = string | never;   // string
+```
+
+### 交叉类型中的 never 类型
+```ts
+type T1 = number & never;   // never
+type T2 = string & never;   // never
+```
