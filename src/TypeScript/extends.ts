@@ -2,6 +2,7 @@
  * extends关键字
  * ts关键字：https://juejin.cn/post/6844904131975446536
  * https://juejin.cn/post/6998736350841143326
+ * 用类型运算写一个 Lisp 解释器：https://juejin.cn/post/7024673107906396190
  * 
  * 用途：
  *  1.用于类型的继承 -> interface Player extends Person {}

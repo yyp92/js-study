@@ -91,3 +91,23 @@ type T4 = string | never;   // string
 type T1 = number & never;   // never
 type T2 = string & never;   // never
 ```
+
+### never 和 void 之间的区别
+- 没有显式返回值的函数会隐式返回 undefined。尽管我们通常说这样的函数 “什么也不返回”，但实际上它是会返回的。在这些情况下，我们通常忽略返回值。在 TypeScript 中这些函数的返回类型被推断为 void。
+- 具有 never 返回类型的函数永不返回。它也不返回 undefined。该函数没有正常完成，这意味着它可能会抛出异常或根本无法退出执行。
+
+`never` 类型为底部类型，也称为零类型或空类型。它通常表示为⊥，表示计算未将结果返回给调用方。
+
+`void` 类型，在另一方面，是一个单元类型（类型，它允许只有一个值），没有定义的操作。
+
+
+
+# 泛型
+## 默认值
+```ts
+// U的默认值是T
+type IsUnion<T, U = T>
+```
+
+# TypeScipt工具类型库
+[type-fest](https://github.com/sindresorhus/type-fest)
