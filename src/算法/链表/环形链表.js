@@ -25,7 +25,7 @@ var detectCycle = function(head) {
     let fast = head.next.next;
 
     // 判断是否有环
-    while (fast && fast.next && fast!== slow) {
+    while (fast && fast.next && fast !== slow) {
         slow = slow.next;
         fast = fast.next.next; 
     }

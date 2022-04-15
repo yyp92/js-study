@@ -12,7 +12,7 @@
  *  2. 四数之和的双指针解法是两层for循环nums[k] + nums[i]为确定值，依然是循环内有left和right下标作为双指针，找出nums[k] + nums[i] + nums[left] + nums[right] == target的情况，三数之和的时间复杂度是$O(n^2)$，四数之和的时间复杂度是$O(n^3)$ 。
  */
 
- var fourSum = function(nums, target) {
+var fourSum = function(nums, target) {
     const len = nums.length;
     if (len < 4) return [];
 
