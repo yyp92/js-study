@@ -24,17 +24,47 @@
  * 空间复杂度：O(n)
  */
 
-const climbStairs = function(n) {
-    // dp[i] 为第 i 阶楼梯有多少种方法爬到楼顶
-    // dp[i] = dp[i - 1] + dp[i - 2]
-    let dp = [1 , 2]
+// const climbStairs = function(n) {
+//     // dp[i] 为第 i 阶楼梯有多少种方法爬到楼顶
+//     // dp[i] = dp[i - 1] + dp[i - 2]
+//     let dp = [1 , 2]
 
-    for(let i = 2; i < n; i++) {
-        dp[i] = dp[i - 1] + dp[i - 2]
+//     for(let i = 2; i < n; i++) {
+//         dp[i] = dp[i - 1] + dp[i - 2]
+//     }
+
+//     return dp[n - 1]
+// };
+
+
+/**
+ * 时间复杂度：O(n)
+ * 空间复杂度：O(1)
+ */
+const climbStairs = function(n) {
+    const dp = [1, 2]
+
+    if (n === 1) {
+        return dp[0]
     }
 
-    return dp[n - 1]
-};
+    for (let i = 3; i <= n; i++) {
+        const sum = dp[0] + dp[1] 
+        dp[0] = dp[1]
+        dp[1] = sum
+    }
+
+    return dp[1]
+}
+
+/**
+ * @TODO:
+ * 扩展
+ * ⼀步⼀个台阶，两个台阶，三个台阶，直到 m个台阶，有多少种⽅法爬
+到n阶楼顶。
+ */
+
+
 
 // 测试
 console.log(climbStairs(1))
