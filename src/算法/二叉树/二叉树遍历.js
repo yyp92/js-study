@@ -1,0 +1,224 @@
+/**
+ * 递归法
+ */
+// js 创建树状结构
+function BinarySearchTree() {
+    //初始化根节点
+    this.root = null;
+
+    // 节点元素
+    function Node(value) {
+        /**
+         * value: 用来保存值的大小
+         * left: 用来表示左子树
+         * right: 用来表示右字数
+         */
+        this.value = value
+        this.left = null;
+        this.right = null;
+    }
+
+    // 插入递归操作
+    function insertNode(oldNode, newNode) {
+        // 1. 判断是在左节点还是在右节点
+        if (newNode.value < oldNode.value) {
+            // 2. 判断左节点是否为null
+            if (oldNode.left === null) {
+                // 为null时，直接添加在后面
+                oldNode.left = newNode;
+            }
+            else {
+                // 不为null，则需要重新递归
+                insertNode(oldNode.left, newNode)
+            }
+        }
+        else {
+            // 同上
+            if (oldNode.right === null) {
+                oldNode.right = newNode;
+            }
+            else {
+                insertNode(oldNode.right, newNode)
+            }
+        }
+    }
+
+    // 插入操作
+    BinarySearchTree.prototype.insert = (key) => {
+        // 1. 创建节点元素
+        const newNode = new Node(key);
+        // 2. 判断是否有root根节点
+        if (this.root === null) {
+            this.root = newNode
+        }
+        else {
+            insertNode(this.root, newNode)
+        }
+    }
+}
+
+// 前序遍历
+const preorderTraversal = (root) => {
+    let res = [];
+
+    const dfs = function(root) {
+        if (root === null) return;
+
+        // 先序遍历所以从父节点开始
+        res.push(root.value);
+
+        // 递归左子树
+        dfs(root.left);
+
+        // 递归右子树
+        dfs(root.right);
+    }
+
+    // 只使用一个参数 使用闭包进行存储结果
+    dfs(root);
+
+    return res;
+};
+
+// 中序遍历
+const inorderTraversal = (root) => {
+    let res = [];
+
+    const dfs = function(root) {
+        if (root === null) return;
+
+        // 递归左子树
+        dfs(root.left);
+
+        // 先序遍历所以从父节点开始
+        res.push(root.value);
+
+        // 递归右子树
+        dfs(root.right);
+    }
+
+    // 只使用一个参数 使用闭包进行存储结果
+    dfs(root);
+
+    return res;
+};
+
+// 后序遍历
+const postorderTraversal = (root) => {
+    let res = [];
+
+    const dfs = function(root) {
+        if (root === null) return;
+
+        // 递归左子树
+        dfs(root.left);
+
+        // 递归右子树
+        dfs(root.right);
+
+        // 先序遍历所以从父节点开始
+        res.push(root.value);
+    }
+
+    // 只使用一个参数 使用闭包进行存储结果
+    dfs(root);
+
+    return res;
+};
+
+
+
+/**
+ * 迭代法
+ */
+// 前序遍历
+// 入栈 右 -> 左
+// 出栈 中 -> 左 -> 右
+const preorderTraversal1 = function(root, res = []) {
+    if (!root) return res;
+    const stack = [root];
+    let cur = null;
+
+    while(stack.length) {
+        cur = stack.pop();
+        res.push(cur.value);
+        cur.right && stack.push(cur.right);
+        cur.left && stack.push(cur.left);
+    }
+
+    return res;
+};
+
+// 中序遍历
+// 需要借用指针的遍历来帮助访问节点，栈则用来处理节点上的元素。
+// 入栈 左 -> 右
+// 出栈 左 -> 中 -> 右
+const inorderTraversal1 = function(root, res = []) {
+    const stack = [];
+    let cur = root;
+
+    while (stack.length || cur) {
+        if (cur) {
+            stack.push(cur);
+            // 左
+            cur = cur.left;
+        }
+        else {
+            // --> 弹出 中
+            cur = stack.pop();
+            res.push(cur.value); 
+            // 右
+            cur = cur.right;
+        }
+    }
+
+    return res;
+};
+
+// 后序遍历
+// 入栈 左 -> 右
+// 出栈 中 -> 右 -> 左 结果翻转
+const postorderTraversal1 = function(root, res = []) {
+    if (!root) return res;
+    
+    const stack = [root];
+    let cur = null;
+
+    do {
+        cur = stack.pop();
+        res.push(cur.value);
+        cur.left && stack.push(cur.left);
+        cur.right && stack.push(cur.right);
+    } 
+    while(stack.length);
+
+    return res.reverse();
+};
+
+
+
+
+// 测试
+const bsts = new BinarySearchTree();
+bsts.insert(11)
+bsts.insert(7)
+bsts.insert(15)
+bsts.insert(5)
+bsts.insert(9)
+bsts.insert(13)
+bsts.insert(20)
+bsts.insert(3)
+bsts.insert(8)
+bsts.insert(10)
+bsts.insert(12)
+bsts.insert(14)
+bsts.insert(18)
+bsts.insert(25)
+bsts.insert(19)
+// console.log('bsts: ', JSON.stringify(bsts))
+// console.log('前：', preorderTraversal(bsts.root))
+// console.log('中：', inorderTraversal(bsts.root))
+// console.log('后：', postorderTraversal(bsts.root))
+console.log('迭代法 前：', preorderTraversal1(bsts.root))
+console.log('迭代法 中：', inorderTraversal1(bsts.root))
+console.log('迭代法 后：', postorderTraversal1(bsts.root))
