@@ -1,6 +1,5 @@
 
 const BinarySearchTree = require('./binarySearchTree')
-console.log('3', BinarySearchTree)
 /**
  * 递归法
  */
@@ -83,7 +82,7 @@ const postorderTraversal = (root) => {
 // 入栈 右 -> 左
 // 出栈 中 -> 左 -> 右
 const preorderTraversal1 = function(root, res = []) {
-    if (!root) return res;
+    // if (!root) return res;
     const stack = [root];
     let cur = null;
 
@@ -127,7 +126,7 @@ const inorderTraversal1 = function(root, res = []) {
 // 入栈 左 -> 右
 // 出栈 中 -> 右 -> 左 结果翻转
 const postorderTraversal1 = function(root, res = []) {
-    if (!root) return res;
+    // if (!root) return res;
     
     const stack = [root];
     let cur = null;
@@ -144,6 +143,79 @@ const postorderTraversal1 = function(root, res = []) {
 };
 
 
+/**
+ * 统一迭代法
+ */
+// 前序遍历：中左右
+// 压栈顺序：右左中
+const preorderTraversal2 = function(root, res = []) {
+    const stack = [];
+    if (root) stack.push(root);
+
+    while(stack.length) {
+        const node = stack.pop();
+
+        if (!node) {
+            res.push(stack.pop().value);
+            continue;
+        }
+
+        if (node.right) stack.push(node.right); // 右
+        if (node.left) stack.push(node.left); // 左
+        stack.push(node); // 中
+        stack.push(null);
+    };
+
+    return res;
+};
+
+// 前序遍历：左中右
+// 压栈顺序：右中左
+const inorderTraversal2 = function(root, res = []) {
+    const stack = [];
+    if (root) stack.push(root);
+
+    while(stack.length) {
+        const node = stack.pop();
+
+        if (!node) {
+            res.push(stack.pop().value);
+            continue;
+        }
+
+        if (node.right) stack.push(node.right); // 右
+        stack.push(node); // 中
+        stack.push(null);
+        if (node.left) stack.push(node.left); // 左
+    };
+
+    return res;
+};
+
+// 前序遍历：左右中
+// 压栈顺序：中右左
+const postorderTraversal2 = function(root, res = []) {
+    const stack = [];
+    if (root) stack.push(root);
+
+    while(stack.length) {
+        const node = stack.pop();
+
+        if (!node) {
+            res.push(stack.pop().value);
+            continue;
+        }
+
+        stack.push(node); // 中
+        stack.push(null);
+        if (node.right) stack.push(node.right); // 右
+        if (node.left) stack.push(node.left); // 左
+    };
+
+    return res;
+};
+
+
 
 
 // 测试
@@ -151,22 +223,25 @@ const bsts = new BinarySearchTree();
 bsts.insert(11)
 bsts.insert(7)
 bsts.insert(15)
-bsts.insert(5)
-bsts.insert(9)
-bsts.insert(13)
-bsts.insert(20)
-bsts.insert(3)
-bsts.insert(8)
-bsts.insert(10)
-bsts.insert(12)
-bsts.insert(14)
-bsts.insert(18)
-bsts.insert(25)
-bsts.insert(19)
+// bsts.insert(5)
+// bsts.insert(9)
+// bsts.insert(13)
+// bsts.insert(20)
+// bsts.insert(3)
+// bsts.insert(8)
+// bsts.insert(10)
+// bsts.insert(12)
+// bsts.insert(14)
+// bsts.insert(18)
+// bsts.insert(25)
+// bsts.insert(19)
 // console.log('bsts: ', JSON.stringify(bsts))
 // console.log('前：', preorderTraversal(bsts.root))
 // console.log('中：', inorderTraversal(bsts.root))
 // console.log('后：', postorderTraversal(bsts.root))
-console.log('迭代法 前：', preorderTraversal1(bsts.root))
-console.log('迭代法 中：', inorderTraversal1(bsts.root))
-console.log('迭代法 后：', postorderTraversal1(bsts.root))
+// console.log('迭代法 前：', preorderTraversal1(bsts.root))
+// console.log('迭代法 中：', inorderTraversal1(bsts.root))
+// console.log('迭代法 后：', postorderTraversal1(bsts.root))
+// console.log('统一迭代法 前：', preorderTraversal2(bsts.root))
+// console.log('统一迭代法 中', inorderTraversal2(bsts.root))
+// console.log('统一迭代法 后', postorderTraversal2(bsts.root))
