@@ -39,4 +39,5 @@ const combineHelper = (n, k, startIndex) => {
 }
 
 // 测试
-console.log(combine(5, 2))
+// console.log(combine(5, 2))
+console.log(combine(4, 2))

@@ -78,8 +78,7 @@ const wiggleMaxLength1 = function(nums) {
         if (nums[i] < nums[i - 1]) {
             down = Math.max(up + 1, down);
         }
-
-        if (nums[i] > nums[i - 1]) {
+        else if (nums[i] > nums[i - 1]) {
             up = Math.max(down + 1, up)
         }
     }
