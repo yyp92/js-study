@@ -31,16 +31,7 @@ const BaseBinaryTreeExtendProps = require('./baseBinaryTreeExtendProps')
  * 本题当然也可以使用前序，代码如下：(充分表现出求深度回溯的过程)
  * 可以看出使用了前序（中左右）的遍历顺序，这才是真正求深度的逻辑！
  */
-
-/**
- * 迭代法
- * 
- * 使用迭代法的话，使用层序遍历是最为合适的，因为最大的深度就是二叉树的层数，和层序遍历的方式极其吻合。
- * 在二叉树中，一层一层的来遍历二叉树，记录一下遍历的层数就是二叉树的深度。
- */
-
-// 递归
-const maxdepth = function(root) {
+ const maxdepth = function(root) {
     // 使用递归的方法 递归三部曲
     // 1. 确定递归函数的参数和返回值
     const getdepth = function(node) {
@@ -60,7 +51,12 @@ const maxdepth = function(root) {
     return getdepth(root);
 };
 
-// 迭代
+/**
+ * 迭代法
+ * 
+ * 使用迭代法的话，使用层序遍历是最为合适的，因为最大的深度就是二叉树的层数，和层序遍历的方式极其吻合。
+ * 在二叉树中，一层一层的来遍历二叉树，记录一下遍历的层数就是二叉树的深度。
+ */
 const maxDepth = function(root) {
     if (!root) return 0
     let count = 0
