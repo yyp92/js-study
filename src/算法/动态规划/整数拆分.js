@@ -53,8 +53,9 @@
  * 复杂度：
  *  时间复杂度：O(n^2)
  *  空间复杂度：O(n)
+ * 
+ * @TODO: 待重新理解
  */
-
 const integerBreak = function(n) {
     let dp = new Array(n + 1).fill(0)
     dp[2] = 1
