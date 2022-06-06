@@ -1,3 +1,4 @@
+const BaseBinaryTreeExtendProps = require('./baseBinaryTreeExtendProps')
 /**
  * 二叉树的最小深度
  * 
@@ -38,3 +39,48 @@
  *      如果对层序遍历还不清楚的话，可以看这篇：二叉树：层序遍历登场！
  *      需要注意的是，只有当左右孩子都为空的时候，才说明遍历的最低点了。如果其中一个孩子为空则不是最低点
  */
+
+// 递归法
+const minDepth = function(root) {
+    if (!root) return 0;
+
+    // 到叶子节点 返回 1
+    if (!root.left && !root.right) return 1;
+
+    // 只有右节点时 递归右节点
+    if (!root.left) return 1 + minDepth(root.right);
+
+    // 只有左节点时 递归左节点
+    if (!root.right) return 1 + minDepth(root.left);
+
+    return Math.min(minDepth(root.left), minDepth(root.right)) + 1;
+};
+
+// 迭代法
+const minDepth1 = function(root) {
+    if (!root) return 0;
+    const queue = [root];
+    let dep = 0;
+
+    while(queue.length) {
+        let size = queue.length;
+        dep++;
+
+        while(size--) {
+            const node = queue.shift();
+            // 到第一个叶子节点 返回 当前深度 
+            if (!node.left && !node.right) return dep;
+
+            node.left && queue.push(node.left);
+            node.right && queue.push(node.right);
+        }
+    }
+};
+
+
+
+// 测试
+const arr = [3,9,20,null,null,15,7]
+const baseBinaryTreeExtendProps = new BaseBinaryTreeExtendProps()
+console.log(minDepth(baseBinaryTreeExtendProps.create(arr)))
+console.log(minDepth1(baseBinaryTreeExtendProps.create(arr)))
