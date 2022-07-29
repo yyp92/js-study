@@ -65,3 +65,28 @@ function throttle(func, wait, options) {
     
     return throttled;
 }
+
+
+
+// 简易版本
+function throttle(fn, wait) {
+    let timer = null
+    let startTime = Date.now()
+
+    return function() {
+        let _this = this
+        let args = arguments
+        const remaining = wait - (Date.now() - startTime)
+        clearTimerout(timer)
+
+        if (remaining <= 0) {
+            fn.apply(_this, args)
+            startTime = Date.now()
+        }
+        else {
+            timer = setTimeout(() => {
+                fn.apply(_this, args)
+            }, remaining)
+        }
+    }
+}

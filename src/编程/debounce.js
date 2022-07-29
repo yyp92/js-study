@@ -41,3 +41,21 @@ function debounce(func, wait, immediate) {
 
     return debounced;
 }
+
+
+
+// 简易版
+function debounce(fn, wait) {
+    let timer = null
+    
+    return function () {
+        if (timer) {
+            clearTimeout(timer)
+        }
+
+        const _this = this
+        const args = arguments
+        
+        timer = setTimeout(fn.bind(_this, ...args), wait)
+    }
+}
