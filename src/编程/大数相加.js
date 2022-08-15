@@ -28,7 +28,7 @@ function add(a, b){
     for (let i = maxLength - 1; i >= 0; i--) {
         t = parseInt(a[i]) + parseInt(b[i]) + f;
         f = Math.floor(t/10);
-        sum = t%10 + sum;
+        sum = t % 10 + sum;
     }
 
     // 最高位，因为都是个位数相加，所以f最大为1
