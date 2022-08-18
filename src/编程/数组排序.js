@@ -6,7 +6,7 @@
 　　（3）对"基准"左边和右边的两个子集，不断重复第一步和第二步，直到所有子集只剩下一个元素为止。
 */
 var quickSort = function(arr) {
-　　if (arr.length <= 1) {
+    if (arr.length <= 1) {
         return arr;
     }
 
