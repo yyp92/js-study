@@ -27,7 +27,9 @@ function test_completePack2() {
     let bagWeight = 4 
     let dp = new Array(bagWeight + 1).fill(0)
 
+    // 背包
     for (let j = 0; j <= bagWeight; j++) {
+        // 物品
         for (let i = 0; i < weight.length; i++) {
             if (j >= weight[i]) {
                 dp[j] = Math.max(dp[j], dp[j - weight[i]] + value[i])
