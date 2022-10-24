@@ -1,5 +1,6 @@
 /**
  * 分割等和子集
+ * https://leetcode.cn/problems/partition-equal-subset-sum/
  * 
  * 题目难易：中等
  * 
