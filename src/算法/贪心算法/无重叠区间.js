@@ -31,7 +31,7 @@
 
 // 按右边界排序
 const eraseOverlapIntervals = function(intervals) {
-    // 排序
+    // 排序(按右边界)
     intervals.sort((a, b) => {
         return a[1] - b[1]
     })
