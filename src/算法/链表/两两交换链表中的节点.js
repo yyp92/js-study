@@ -1,6 +1,9 @@
 /**
- * 两两交换链表中的节点
+ * 24.两两交换链表中的节点
+ * https://leetcode.cn/problems/swap-nodes-in-pairs/
+ * 
  * 建议使用虚拟头结点，这样会方便很多，要不然每次针对头结点（没有前一个指针指向头结点），还要单独处理。
+ * https://code-thinking.cdn.bcebos.com/pics/24.%E4%B8%A4%E4%B8%A4%E4%BA%A4%E6%8D%A2%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9-%E9%A2%98%E6%84%8F.jpg
  * 
  * 示例：
  * 输入: head = [1, 2, 3, 4]
