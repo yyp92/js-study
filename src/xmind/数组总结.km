@@ -1,0 +1,324 @@
+{
+    "root": {
+        "data": {
+            "id": "coiphsq3iao0",
+            "created": 1669108250355,
+            "text": "数组"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "coipi5ct7go0",
+                    "created": 1669108277849,
+                    "text": "基础知识"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "coipiyjsje00",
+                            "created": 1669108341398,
+                            "text": "定义：数组是存放在连续内存空间上的相同类型数据的集合。"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "coipjvjp6bk0",
+                            "created": 1669108413226,
+                            "text": "特点："
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "coipk0eo0vk0",
+                                    "created": 1669108423806,
+                                    "text": "数组下标都是从0开始"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "coipkapctts0",
+                                    "created": 1669108446220,
+                                    "text": "数组内存空间的地址是连续的"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "coipksujxmo0",
+                            "created": 1669108485717,
+                            "text": "vector和array的区别：vector的底层实现是array,严格来讲vector是容器，不是数组"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "coiplzwfw5c0",
+                            "created": 1669108579432,
+                            "text": "c++中的二维数组在地址空间上是连续的"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "coipil0jom80",
+                    "created": 1669108311936,
+                    "text": "二分查找"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "coipmd1mxfs0",
+                            "created": 1669108608045,
+                            "text": "注意循环不变量原则"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "coipn7o7unc0",
+                                    "created": 1669108674714,
+                                    "text": "左闭右闭"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "coipo1lgyl40",
+                                            "created": 1669108739851,
+                                            "text": "right = nums.size() - 1"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "coipo304tag0",
+                                            "created": 1669108742914,
+                                            "text": "while(left <= right)"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "coipo4i6kjc0",
+                                            "created": 1669108746182,
+                                            "text": "right = middle - 1\nleft = middle + 1"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "coipnrtmrs00",
+                                    "created": 1669108718577,
+                                    "text": "左闭右开"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "coippa2ahgg0",
+                                            "created": 1669108836646,
+                                            "text": "right = nums.size() "
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "coippbs4g9s0",
+                                            "created": 1669108840385,
+                                            "text": "while(left < right)"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "coippd00nr40",
+                                            "created": 1669108843039,
+                                            "text": "right = middle\nleft = middle + 1"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "coipim48d4g0",
+                    "created": 1669108314336,
+                    "text": "移除元素",
+                    "layout": null
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "coipqkzq1ig0",
+                            "created": 1669108938800,
+                            "text": "双指针"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "coipr161cx40",
+                                    "created": 1669108974010,
+                                    "text": "通过一个快指针和慢指针在一个for循环下完成两个for循环的工作。"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "coipqm4cf9c0",
+                            "created": 1669108941256,
+                            "text": "相向双指针"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "coiprytmvso0",
+                                    "created": 1669109047271,
+                                    "text": "一个指针从左向右、一个指针从右向左。从左向右的找等于目标值的位置，\n从右向左找不等于目标值的位置，然后每次找到一个用不等于的覆盖等于的"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "coipu5x8trs0",
+                    "created": 1669109219455,
+                    "text": "有序数组平方"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "coipvgnlaxs0",
+                            "created": 1669109321180,
+                            "text": "双指针：一个从左向右，一个从右向左，两个每次比较平方的大小，大的存入结果数组并移动指针，小的停在原地。"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "coipvhpwb0o0",
+                            "created": 1669109323496,
+                            "text": "时间复杂度：O(n)\n空间复杂度：O(n)"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "coipu717f080",
+                    "created": 1669109221871,
+                    "text": "长度最小的数组"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "coipxw8q7wo0",
+                            "created": 1669109511838,
+                            "text": "滑动窗口：其实也是双指针的变种，这一题主要需要两个指针都\n能固定住并且一个指针固定，另外的一个指针还能连续变化。"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "coipxxbcqq00",
+                            "created": 1669109514174,
+                            "text": "这里采用的就是外层for更改一个指针，内层用while连续更新另一个指针"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "coipxyggrmo0",
+                            "created": 1669109516660,
+                            "text": "时间复杂度：O(n)\n空间复杂度：O(1)"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "coipu83lmzk0",
+                    "created": 1669109224193,
+                    "text": "最小覆盖子串"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "coiq8ptk5rs0",
+                            "created": 1669110359866,
+                            "text": "滑动窗口"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "coiq8t6ykhc0",
+                            "created": 1669110367207,
+                            "text": "需要创建一个unorder_map维护目标字符串的各字母出现次数，\n方便修改，而且不用在滑动窗口变化的时候对上一个map进行修改"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "coiq8vfcd7c0",
+                            "created": 1669110372067,
+                            "text": "然后再遍历过程如果达到目标字符串次数就收缩窗口左边界，并记录窗口起点，\n当收缩的窗口不能完全覆盖目标字符串就扩展窗口右边界，至再次能完全覆盖"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "coiq8wllvzc0",
+                            "created": 1669110374623,
+                            "text": "当右窗口达到终点，左边界收缩完成，将此时的起点用于分割字符串"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "coipu92y82w0",
+                    "created": 1669109226330,
+                    "text": "螺旋数组"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "coiqhivc2go0",
+                            "created": 1669111050013,
+                            "text": "对于正方形的二维数组只需要考虑转多少圈以及最后中间是否剩一个值，\n如果剩一个值需要在转完圈后，单独加中间值。另外转圈过程要保证坚持左闭右开或者左开右闭"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "coiqhk3m16o0",
+                            "created": 1669111052691,
+                            "text": " "
+                        },
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "right",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}
