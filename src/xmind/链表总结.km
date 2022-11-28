@@ -1,0 +1,475 @@
+{
+    "root": {
+        "data": {
+            "id": "con4lth1ktc0",
+            "created": 1669557121916,
+            "text": "链表"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "con4m44llps0",
+                    "created": 1669557145108,
+                    "text": "理论基础"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "con4mf5gm9c0",
+                            "created": 1669557169105,
+                            "text": "链表是一种通过指针串联在一起的线性结构，每一个节点由两部分组成，一个是数据域一个是指针域\n（存放指向下一个节点的指针），最后一个节点的指针域指向null（空指针的意思）。"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "con4mg9s6e80",
+                            "created": 1669557171543,
+                            "text": "分类"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "con4o3jucdc0",
+                                    "created": 1669557300581,
+                                    "text": "单链表"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "con4o4nj2tc0",
+                                    "created": 1669557302981,
+                                    "text": "双链表"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "con4oytsnfc0",
+                                            "created": 1669557368663,
+                                            "text": "一个节点有两个指针域分别指向\n前一个节点和后一个节点"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "con4ozt4qw80",
+                                            "created": 1669557370800,
+                                            "text": "双向链表可以双向查询"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "con4o5o0c9s0",
+                                    "created": 1669557305187,
+                                    "text": "循环链表"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "con4ofsrutc0",
+                                            "created": 1669557327243,
+                                            "text": "头节点与尾节点相连"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "con4mqm6isg0",
+                            "created": 1669557194061,
+                            "text": "存储方式"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "con4pz7a12o0",
+                                    "created": 1669557447843,
+                                    "text": "链表中的节点在内存中不是连续分布的 ，而是散乱分布在内存中\n的某地址上，分配机制取决于操作系统的内存管理。"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "con4ms8k4jc0",
+                            "created": 1669557197590,
+                            "text": "链表定义"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "con4qlthvig0",
+                                    "created": 1669557497075,
+                                    "text": "结构体中至少需要包括数据，指向下一\n个节点的指针以及节点的构造函数。"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "con4qn0wk400",
+                                    "created": 1669557499700,
+                                    "text": "定义代码",
+                                    "note": "```js\nclass LinkNode {\n    constructor(val, next) {\n        this.val = val;\n        this.next = next;\n    }\n}\n```"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "con4qob3a1c0",
+                                    "created": 1669557502493,
+                                    "text": "如果不定义函数不能在定义链表的时候进行初始化"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "con4mtgpipk0",
+                            "created": 1669557200260,
+                            "text": "链表操作"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "con4t3y56hs0",
+                                    "created": 1669557693267,
+                                    "text": "删除节点"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "con4tgoc8g00",
+                                            "created": 1669557720972,
+                                            "text": "将该节点跳过前一节点指向下一节点"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "con4t51kk4g0",
+                                    "created": 1669557695651,
+                                    "text": "添加节点"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "con4txruoco0",
+                                            "created": 1669557758190,
+                                            "text": "前一节点指向该节点，该节点指向下一节点"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "con4uny3bk00",
+                    "created": 1669557815164,
+                    "text": "移除链表元素"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "con4v7n2r6g0",
+                            "created": 1669557858033,
+                            "text": "原链表移除"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "con4vr1lvtc0",
+                                    "created": 1669557900271,
+                                    "text": "移除头结点：将头节点设置为后一个节\n点，并且回收头节点。"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "con4vsd45bk0",
+                                    "created": 1669557903143,
+                                    "text": "其他节点：将前一个节点的指针指向下\n一个节点，并且回收该节点。"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "con4v8u1fdk0",
+                            "created": 1669557860631,
+                            "text": "虚拟头节点移除"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "con4xmqdbds0",
+                                    "created": 1669558047612,
+                                    "text": "设置虚拟头节点，从虚拟头节点开始遍历，删除每一个节点都是使前一个节点的指针\n指向后一个节点，并且删除当前节点，当遍历结束，返回虚拟头节点的后一个节点。"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "con4upqrir40",
+                    "created": 1669557819074,
+                    "text": "设计链表"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "con501rgxyg0",
+                            "created": 1669558237059,
+                            "text": "最好在前边设置一个虚拟头节点，方便统一操作头节点（在初始化链表函数里设置）"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "con502t47j40",
+                            "created": 1669558239335,
+                            "text": "获取链表的第几个元素，此时应该取到正对的那个节点，因此cur应该设置为head而不是虚拟头节点，\n且由于index从零开始，因此index不能大于size-1"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "con504057oo0",
+                            "created": 1669558241937,
+                            "text": "在指定index前插入和删除需要都遍历到目标节点的前一个节点，因此cur应该从虚拟头节点开始，\n而插入一个节点index可以是size，因此实际会取到最后一个节点并且在最后一个节点后边插入，\n删除节点index不能是size，因为没有size这个节点。"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "consftvi7g80",
+                    "created": 1669624359243,
+                    "text": "翻转链表"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "consg9jzz000",
+                            "created": 1669624393376,
+                            "text": "双指针"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "consh100bts0",
+                                    "created": 1669624453117,
+                                    "text": "首先定义一个cur指针，指向头节点，再定义一个pre指针，初始化为null，然后就要开始翻转了，\n首先要把cur->next节点用temp指针保存一下，也就是保存一下这个节点，将cur->next指向pre,\n此时已经翻转了第一个节点了，然后pre=cur,cur=temp"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "consgaq6nw00",
+                            "created": 1669624395927,
+                            "text": "递归"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "consnppoge00",
+                                    "created": 1669624977097,
+                                    "text": "从前向后：类似于双指针只是把pre=cur,cur=temp这个部分用递归实现"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "consnqvollc0",
+                                    "created": 1669624979637,
+                                    "text": "从后往前：先遍历到最后，然后利用cur->next->next=cur进行反转"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "consfuujetk0",
+                    "created": 1669624361362,
+                    "text": "两两交换链表节点"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "contaslvkso0",
+                            "created": 1669626785773,
+                            "text": " ",
+                            "priority": null,
+                            "progress": null,
+                            "image": "https://code-thinking.cdn.bcebos.com/pics/24.%E4%B8%A4%E4%B8%A4%E4%BA%A4%E6%8D%A2%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B91.png",
+                            "imageTitle": "",
+                            "imageSize": {
+                                "width": 200,
+                                "height": 62
+                            }
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "contav22cm80",
+                            "created": 1669626791106,
+                            "text": "交换完两个之后将cur向后移动两位"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "contaw7t9fs0",
+                            "created": 1669626793630,
+                            "text": "时间复杂度：O(n)\n空间复杂度：O(1)"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "consfw7xl1c0",
+                    "created": 1669624364348,
+                    "text": "删除链表的倒数第N个节点"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "contlar2zm80",
+                            "created": 1669627608912,
+                            "text": "使用双指针，一个指针先走N步，然后两个指针一起向后遍历，当前边的指针先到达尾节点，\n此时后边的指针处在第N节点，之后将该节点的cur.next->next赋给cur.next完成对应节点删除"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "contlc6ixb40",
+                            "created": 1669627612022,
+                            "text": "前边的指针在先走n步后还应该在走一步，保证后边的指针实际是在第N个节点的前一个，从而方便删除"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "consfxfbqu80",
+                    "created": 1669624366972,
+                    "text": "链表相交"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "contpt1v2xk0",
+                            "created": 1669627962202,
+                            "text": "这里计算的两个链表首个相交节点的指针，交点比较的是指针相同而不是数值相同"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "contpu89is00",
+                            "created": 1669627964766,
+                            "text": "将两个链表结尾靠在一起，然后一个指针指向短链表的开始，一个指向长链表的\n与短链表开头对齐的地方"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "contpvc6hqo0",
+                            "created": 1669627967180,
+                            "text": "两个指针一起向后遍历，直到找到两个指针相同的节点，该节点返回即可。"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "consg1bc9vk0",
+                    "created": 1669624375438,
+                    "text": "环形链表"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "contu4zdzi00",
+                            "created": 1669628301631,
+                            "text": "先判断是否有环"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "contuz50vsg0",
+                                    "created": 1669628367275,
+                                    "text": "可以使用快慢指针，分别定义fast和slow指针，从头节点出发，fast指针每次移动两个节点，\nslow指针每次移动一个节点，如果fast和slow指针在途中相遇，说明这个链表有环。"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "contu6rytyg0",
+                            "created": 1669628305536,
+                            "text": "判断环的入口"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "contwrtkrv40",
+                                    "created": 1669628508074,
+                                    "text": " ",
+                                    "image": "https://code-thinking-1253855093.file.myqcloud.com/pics/20220925103433.png",
+                                    "imageTitle": "",
+                                    "imageSize": {
+                                        "width": 200,
+                                        "height": 70
+                                    }
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "contwt5po9s0",
+                                    "created": 1669628510984,
+                                    "text": "topic"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "right",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}
