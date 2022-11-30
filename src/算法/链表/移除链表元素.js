@@ -1,5 +1,6 @@
 /**
  * 移除链表元素
+ * https://leetcode.cn/problems/remove-linked-list-elements/
  * 
  * 题意：删除链表中等于给定值 val 的所有节点。
  * 示例 1：

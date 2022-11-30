@@ -1,5 +1,6 @@
 /**
  * 用队列实现栈
+ * https://leetcode.cn/problems/implement-stack-using-queues/
  * 
  * 实现操作：
  *  push(x) -- 元素 x 入栈
