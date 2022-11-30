@@ -71,7 +71,7 @@ function throttle(func, wait, options) {
 // 简易版本
 function throttle(fn, wait) {
     let timer = null
-    let startTime = Date.now()
+    let startTime = 0
 
     return function() {
         let _this = this
