@@ -4,6 +4,8 @@ const CreateMoreTree = require('./createMoreTree')
 /**
  * 二叉树层序遍历
  * 队列先进先出，符合一层一层遍历的逻辑，而使用栈先进后出适合模拟深度优先遍历也就是递归的逻辑。
+ * 
+ * https://www.bilibili.com/video/BV1GY4y1u7b2
  */
 const levelOrder = function(root) {
     // 处理空数组的情况
