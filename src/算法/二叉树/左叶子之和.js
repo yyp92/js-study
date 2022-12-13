@@ -1,5 +1,6 @@
 /**
  * 404.左叶子之和
+ * https://leetcode.cn/problems/sum-of-left-leaves/
  * 
  * 计算给定二叉树的所有左叶子之和。
  * 示例：
@@ -55,3 +56,4 @@ const sumOfLeftLeaves1 = function(root) {
 
     return sum;
 };
+  
