@@ -1,5 +1,6 @@
 /**
  * 654.最大二叉树
+ * https://leetcode.cn/problems/maximum-binary-tree/
  * 
  * 给定一个不含重复元素的整数数组。一个以此数组构建的最大二叉树定义如下：
  *  二叉树的根是数组中的最大元素。
@@ -13,7 +14,7 @@
  * 提示：
  *  给定的数组的大小在 [1, 1000] 之间。
  */
- function TreeNode(val, left, right) {
+function TreeNode(val, left, right) {
     this.val = (val === undefined ? 0 : val)
     this.left = (left === undefined ? null : left)
     this.right = (right === undefined ? null : right)
