@@ -1,5 +1,5 @@
 /**
- * asyncPool 比较完美的实现
+ * asyncPool 比较完美的实现接口并发请求
  * @param {*} poolLimit 表示限制的并发数；
  * @param {*} array 表示任务数组；
  * @param {*} iteratorFn 表示迭代函数，用于实现对每个任务项进行处理，该函数会返回一个 Promise 对象或异步函数。
