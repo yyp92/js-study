@@ -215,6 +215,8 @@ const isPassport = value => /(^[EeKkGgDdSsPpHh]\d{8}$)|(^(([Ee][a-fA-F])|([DdSsP
 
 /**
  * 验证帐号是否合法(字母开头，允许5-16字节，允许字母数字下划线组合
+ * 
+ * \w: 匹配一个单字字符（字母、数字或者下划线）。等价于 [A-Za-z0-9_]。
  */
 const isWebAccount = value => /^[a-zA-Z]\w{4,15}$/g.test(value);
 
