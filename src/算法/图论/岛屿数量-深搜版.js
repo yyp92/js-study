@@ -1,5 +1,5 @@
 /**
- * 岛屿数量-广搜版
+ * 岛屿数量-深搜版
  * 
  * https://leetcode.cn/problems/number-of-islands/
  * 
@@ -18,56 +18,45 @@
 
 const numIslands = function (grid) {
     // 四个方向
-    let dir = [[0, 1], [1, 0], [-1, 0], [0, -1]];
+    let dir = [[0, 1], [1, 0], [-1, 0], [0, -1]]; 
 
-    let bfs = (grid, visited, x, y) => {
-        let queue = [];
+    let dfs = (grid, visited, x, y) => {
+        for (let i = 0; i < 4; i++) {
+            let nextX = x + dir[i][0]
+            let nextY = y + dir[i][1]
 
-        queue.push([x, y]);
-        // 只要加入队列，立刻标记
-        visited[x][y] = true;
-
-        while (queue.length) {
-            // 取出队列头部元素
-            let top = queue.shift();
-
-            // 因为是四个方向，所以为4
-            for (let i = 0; i < 4; i++) {
-                let nextX = top[0] + dir[i][0]
-                let nextY = top[1] + dir[i][1]
-
-                // 越界了，直接跳过
-                if (nextX < 0 || nextX >= grid.length || nextY < 0 || nextY >= grid[0].length) {
-                    continue;
-                }
-                   
-                // 判断四个方向的是否访问过 且 为岛屿
-                if (!visited[nextX][nextY] && grid[nextX][nextY] === "1") {
-                    queue.push([nextX, nextY])
-                    // 只要加入队列立刻标记
-                    visited[nextX][nextY] = true
-                }
+            // 越界了，直接跳过
+            if (nextX < 0 || nextX >= grid.length || nextY < 0 || nextY >= grid[0].length) {
+                continue;
+            }
+                
+            // 没有访问过的同时是陆地的
+            if (!visited[nextX][nextY] && grid[nextX][nextY] === "1") {
+                visited[nextX][nextY] = true
+                dfs(grid, visited, nextX, nextY)
             }
         }
     }
-
     let visited = new Array(grid.length).fill().map(() => Array(grid[0].length).fill(false))
-    let res = 0
 
+    let res = 0
     for (let i = 0; i < grid.length; i++) {
         for (let j = 0; j < grid[i].length; j++) {
             if (!visited[i][j] && grid[i][j] === "1") {
                 // 遇到没访问过的陆地，+1
                 res++;
 
+                visited[i][j] = true;
+
                 // 将与其链接的陆地都标记上 true
-                bfs(grid, visited, i, j);
+                dfs(grid, visited, i, j);
             }
         }
     }
 
     return res
 };
+
 
 
 // 测试
@@ -88,3 +77,4 @@ const grid2 = [
 console.log(numIslands(grid1))
 // 3
 console.log(numIslands(grid2))
+
