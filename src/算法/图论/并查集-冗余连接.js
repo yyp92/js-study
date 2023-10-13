@@ -58,11 +58,11 @@ const same = (u, v) => {
  */
 var findRedundantConnection = function(edges) {
     // 并查集初始化
-    for(let i = 0; i < n; i++){
+    for (let i = 0; i < n; i++) {
         father[i] = i;
     }
 
-    for(let i = 0; i < edges.length; i++){
+    for (let i = 0; i < edges.length; i++) {
         if (same(edges[i][0], edges[i][1])) {
             return edges[i]
         }
