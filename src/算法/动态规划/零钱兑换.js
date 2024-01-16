@@ -23,7 +23,9 @@
  *  1 <= coins[i] <= 2^31 - 1
  *  0 <= amount <= 10^4
  */
- const coinChange = (coins, amount) => {
+const coinChange = (coins, amount) => {
+    // * dp[j]：凑足总额为j所需钱币的最少个数为dp[j]
+    
     if (!amount) {
         return 0;
     }

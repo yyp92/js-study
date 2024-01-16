@@ -73,6 +73,8 @@
  *  01背包相对于本题，主要要理解，题目中物品是nums[i]，重量是nums[i]，价值也是nums[i]，背包体积是sum/2。
  */
 const canPartition = function(nums) {
+    // 01背包中，dp[j] 表示： 容量为j的背包，所背的物品价值最大可以为dp[j]。
+    
     // 计算总和
     const sum = (nums.reduce((p, v) => p + v));
 

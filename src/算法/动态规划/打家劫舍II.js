@@ -38,6 +38,8 @@ const rob = function(nums) {
 const robRange = (nums, start, end) => {
     if (end === start) return nums[start]
 
+    // * dp[i]：考虑下标i（包括i）以内的房屋，最多可以偷窃的金额为dp[i]。
+    
     // 初始化
     const dp = Array(nums.length).fill(0)
     dp[start] = nums[start]

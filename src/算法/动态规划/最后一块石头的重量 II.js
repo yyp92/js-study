@@ -63,6 +63,10 @@
  */
 
 const lastStoneWeightII = function (stones) {
+    /**
+     * dp[j]表示容量（这里说容量更形象，其实就是重量）为j的背包，最多可以背最大重量为dp[j]。
+     */
+    
     // 计算总质量
     let sum = stones.reduce((s, n) => s + n);
 

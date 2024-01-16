@@ -92,6 +92,8 @@
  *  后面我们在讲解完全背包的时候，还会用到这个递推公式！
  */
 const findTargetSumWays = (nums, target) => {
+    // dp[j] 表示：填满j（包括j）这么大容积的包，有dp[j]种方法
+    
     const sum = nums.reduce((a, b) => a + b);
     
     // S的绝对值已经大于sum，也是无解的
