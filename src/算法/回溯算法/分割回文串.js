@@ -1,5 +1,6 @@
 /**
  * 分割回文串
+ * https://leetcode.cn/problems/palindrome-partitioning/description/
  * 
  * 题意：
  *  给定一个字符串 s，将 s 分割成一些子串，使每个子串都是回文串。

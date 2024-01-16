@@ -11,6 +11,13 @@
  */
 
 function testweightbagproblem (weight, value, size) {
+    /**
+     * dp[i][j]: [0, i] 物品任取放到容量为 j 的背包的最大价值
+     * 
+     * 不放物品i: dp[i-1][j]
+     * 放物品i: dp[i-1][j-weight[i]] + value[i]
+     */
+
     // weight数组的⼤⼩ 就是物品个数
     const len = weight.length;
     // Array.from() 可以通过以下方式来创建数组对象：伪数组对象（拥有一个 length 属性和若干索引属性的任意对象）
