@@ -23,11 +23,13 @@
  * 空间复杂度：O(n)
  */
 const findLengthOfLCIS = (nums) => {
+    // * dp[i]：以下标i为结尾的连续递增的子序列长度为dp[i]。
+
     let dp = new Array(nums.length).fill(1);
 
-    for (let i = 0; i < nums.length - 1; i++) {
-        if (nums[i + 1] > nums[i]) {
-            dp[i + 1] = dp[i] + 1;
+    for (let i = 1; i < nums.length; i++) {
+        if (nums[i] > nums[i - 1]) {
+            dp[i] = dp[i - 1] + 1;
         }
     }
 

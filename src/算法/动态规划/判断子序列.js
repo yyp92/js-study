@@ -18,6 +18,8 @@
  * 空间复杂度：O(n × m)
  */
 const isSubsequence = (s, t) => {
+    // * dp[i][j]: 表示以下标i-1为结尾的字符串s，和以下标j-1为结尾的字符串t，相同子序列的长度为dp[i][j]
+
     // s、t的长度
     const [m, n] = [s.length, t.length];
 

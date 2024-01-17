@@ -85,9 +85,9 @@ function getSimilarity1(str1, str2) {
 // var s3 = getSimilarity('龙_神话与幻兽','龙凤店')  // 0.1
 // var s4 = getSimilarity('龙','龙_神话与幻兽')  // 0.1
 // var s5 = getSimilarity('黑豹','龙')  // 0
-// var s6 = getSimilarity('黑豹','黑豹')  // 1
+var s6 = getSimilarity('黑豹','黑豹')  // 1
 // var s7 = getSimilarity('黑衣人3','黑豹');  // 0.2
 // var s8 = getSimilarity('黑衣人3','黑衣人3');  // 1
 // console.log('getSimilarity', s1, s2, s3, s4, s5, s6, s7, s8)
 const s9 = getSimilarity('我和我的祖国', '我我')
-console.log('getSimilarity', s9)
+console.log('getSimilarity', s6)

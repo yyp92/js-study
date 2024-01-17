@@ -11,6 +11,11 @@
  */
 
  const rob = root => {
+    /**
+     * * dp数组（dp table）以及下标的含义：下标为0记录不偷该节点所得到的的最大金钱，下标为1记录偷该节点所得到的的最大金钱。
+     * * 所以本题dp数组就是一个长度为2的数组！
+     */
+
     // 后序遍历函数
     const postOrder = node => {
         // 递归出口
@@ -31,6 +36,7 @@
     };
     
     const res = postOrder(root);
+    
     // 返回最大值
     return Math.max(...res);
 }

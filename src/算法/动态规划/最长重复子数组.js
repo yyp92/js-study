@@ -14,6 +14,9 @@
  *  0 <= A[i], B[i] < 100
  */
 const findLength = (A, B) => {
+    // * dp[i][j] ：以下标i - 1为结尾的A，和以下标j - 1为结尾的B，最长重复子数组长度为dp[i][j]。
+    // * （特别注意： “以下标i - 1为结尾的A” 标明一定是 以A[i-1]为结尾的字符串 ）
+
     // A、B数组的长度
     const [m, n] = [A.length, B.length];
 
@@ -52,6 +55,7 @@ const findLength1 = (nums1, nums2) => {
             if (nums1[i - 1] === nums2[j - 1]) {
                 dp[j] = dp[j - 1] + 1;
             }
+            // 注意这里不相等的时候要有赋 0 的操作
             else {
                 dp[j] = 0;
             }

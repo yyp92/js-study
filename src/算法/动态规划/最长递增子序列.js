@@ -19,6 +19,8 @@
  *  -10^4 <= nums[i] <= 104
  */
 const lengthOfLIS = (nums) => {
+    // * dp[i]表示i之前包括i的以nums[i]结尾的最长递增子序列的长度
+    
     // dp[i]: 前i个元素中，以nums[i]结尾，最长子序列的长度
     // 初始化，所有的元素都应该初始化为1
     let dp = Array(nums.length).fill(1);

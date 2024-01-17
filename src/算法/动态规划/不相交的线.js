@@ -7,7 +7,11 @@
  * 以这种方法绘制线条，并返回我们可以绘制的最大连线数。
  * https://img-blog.csdnimg.cn/2021032116363533.png
  */
+
+// ? 其实就是求两个字符串的最长公共子序列的长度！
 const maxUncrossedLines = (nums1, nums2) => {
+    // * dp[i][j]：长度为[0, i - 1]的字符串nums1 与 长度为[0, j - 1]的字符串nums2的最长公共子序列为dp[i][j]
+    
     // 两个数组长度
     const [m, n] = [nums1.length, nums2.length];
 

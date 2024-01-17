@@ -26,19 +26,24 @@
  * 空间复杂度：O(n^2)
  */
 const countSubstrings1 = (s) => {
+    // * 布尔类型的dp[i][j]：表示区间范围[i,j] （注意是左闭右闭）的子串是否是回文子串，如果是dp[i][j]为true，否则为false
+
     const strLen = s.length;
     let numOfPalindromicStr = 0;
-    let dp = Array.from(Array(strLen), () => Array(strLen).fill(false));
+    let dp = Array.from(new Array(strLen), () => new Array(strLen).fill(false));
 
     for (let i = strLen - 1; i >= 0; i--) {
         for (let j = i; j < strLen; j++) {
             // 当两端字母一样时，才可以两端收缩进一步判断
             if (s[i] === s[j]) {
-                // 情况一 和 情况二
+                /**
+                 * 情况一：下标i 与 j相同，同一个字符例如a，当然是回文子串
+                 * 情况二：下标i 与 j相差为1，例如aa，也是回文子串
+                 */
                 if ((j - i) <= 1) {
                     dp[i][j] = true;
                 }
-                // 情况三
+                // 情况三：下标：i 与 j相差大于1的时候，例如cabac，此时s[i]与s[j]已经相同了，我们看i到j区间是不是回文子串就看aba是不是回文就可以了，那么aba的区间就是 i+1 与 j-1区间，这个区间是不是回文就看dp[i + 1][j - 1]是否为true。
                 else {
                     dp[i][j] = dp[i + 1][j - 1];
                 }

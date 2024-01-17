@@ -23,6 +23,8 @@
  *  word1 和 word2 由小写英文字母组成
  */
 const minDistance = (word1, word2) => {
+    // * dp[i][j] 表示以下标i-1为结尾的字符串word1，和以下标j-1为结尾的字符串word2，最近编辑距离为dp[i][j]
+    
     // 初始化
     let dp = Array.from(Array(word1.length + 1), () => Array(word2.length + 1).fill(0));
     for (let i = 1; i <= word1.length; i++) {
