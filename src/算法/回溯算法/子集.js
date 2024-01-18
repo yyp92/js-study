@@ -15,9 +15,14 @@ const subsets = function(nums) {
     let path = []
 
     function backtracking(startIndex) {
-        console.log('path: ', path)
+        // console.log('path: ', path)
+
         // 收集子集
         result.push([...path])
+
+        // if (startIndex >= nums.length) {
+        //     return
+        // }
 
         for (let i = startIndex; i < nums.length; i++) {
             // 处理节点
