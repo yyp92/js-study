@@ -37,6 +37,7 @@
  *  大家可以看出思路想出来了，代码还是非常简单的。
  */
 
+// * 转化为求解覆盖范围
 const canJump = function(nums) {
     // 只有一个元素，就是能达到
     if (nums.length === 1) return true

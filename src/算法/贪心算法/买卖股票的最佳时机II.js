@@ -64,6 +64,7 @@
 const maxProfit = function(prices) {
     let result = 0
 
+    // 因为只有卖出才能获取利润
     for (let i = 1; i < prices.length; i++) {
         result += Math.max(prices[i] - prices[i - 1], 0)
     }
