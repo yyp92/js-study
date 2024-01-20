@@ -18,7 +18,7 @@ const findBottomLeftValue = function(root) {
 
     // 1. 确定递归函数的函数参数
     const dfsTree = function(node, curPath){
-    // 2. 确定递归函数终止条件
+        // 2. 确定递归函数终止条件
         if (node.left === null && node.right === null) {
             if (curPath > maxPath) {
                 maxPath = curPath;

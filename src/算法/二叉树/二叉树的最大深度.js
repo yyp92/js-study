@@ -42,8 +42,11 @@ const maxdepth = function(root) {
         }
 
         // 3. 确定单层逻辑
+        // 左
         let leftdepth = getdepth(node.left);
+        // 右
         let rightdepth = getdepth(node.right);
+        // 中
         let depth = 1 + Math.max(leftdepth, rightdepth);
 
         return depth;

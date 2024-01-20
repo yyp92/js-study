@@ -10,6 +10,13 @@
  *  https://img-blog.csdnimg.cn/20201020171048265.png
  */
 
+// * 创建树的节点
+function TreeNode(val, left, right) {
+    this.val = (val===undefined ? 0 : val)
+    this.left = (left===undefined ? null : left)
+    this.right = (right===undefined ? null : right)
+}
+
 // 递归
 function getMinNode(root) {
     while (root.left) {
@@ -19,18 +26,11 @@ function getMinNode(root) {
     return root;
 }
 
-var deleteNode = function(root, key) {
+const deleteNode = function(root, key) {
     if (!root) return null;
 
-    if (key > root.val) {
-        root.right = deleteNode(root.right, key);
-        return root;
-    } 
-    else if (key < root.val) {
-        root.left = deleteNode(root.left, key);
-        return root;
-    } 
-    else {
+    // 单层递归
+    if (key === root.val) {
         // 第一种情况：没找到删除的节点，遍历到空节点直接返回了
         if (root === null) return root; 
 
@@ -38,12 +38,12 @@ var deleteNode = function(root, key) {
         if (!root.left && !root.right) {
             return null
         }
-        // 第三种情况：其左孩子为空，右孩子不为空，删除节点，右孩子补位 ，返回右孩子为根节点
+        // 第三种情况：左孩子不为空，其右孩子为空，删除节点，左孩子补位，返回左孩子为根节点
         else if (root.left && !root.right) {
             return root.left;
         } 
-        // 第四种情况：其右孩子为空，左孩子不为空，删除节点，左孩子补位，返回左孩子为根节点
-        else if (root.right && !root.left) {
+        // 第四种情况：其左孩子为空，右孩子不为空，删除节点，右孩子补位 ，返回右孩子为根节点
+        else if (!root.left && root.right) {
             return root.right;
         }
 
@@ -52,18 +52,32 @@ var deleteNode = function(root, key) {
         const rightNode = root.right;
         // 获取最小值节点
         const minNode = getMinNode(rightNode);
-        // 将待删除节点的值替换为最小值节点值
-        root.val = minNode.val;
-        // 删除最小值节点
-        root.right = deleteNode(root.right, minNode.val);
+        minNode.left = root.left
+        root = root.right
+
+        // // 将待删除节点的值替换为最小值节点值
+        // root.val = minNode.val;
+        // // 删除最小值节点
+        // root.right = deleteNode(root.right, minNode.val);
 
         return root;
     }
+
+    // 右子树
+    if (key > root.val) {
+        root.right = deleteNode(root.right, key);  
+    } 
+    // 左子树
+    if (key < root.val) {
+        root.left = deleteNode(root.left, key);
+    } 
+    
+    return root;
 };
 
 
-// 迭代 --> 以后在研究？？
-var deleteNode = function (root, key) {
+// todo 迭代 --> 以后在研究？？
+const deleteNode1 = function (root, key) {
     const deleteOneNode = target => {
         if (!target) return target
 

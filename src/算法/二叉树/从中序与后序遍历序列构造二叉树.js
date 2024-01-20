@@ -17,6 +17,14 @@
  *  第六步：递归处理左区间和右区间
  */
 
+class TreeNode {
+    constructor(value) {
+        this.val = value
+        this.left = null
+        this.right = null
+    }
+}
+
 const buildTree = function(inorder, postorder) {
     if (!inorder.length) return null;
 
@@ -30,6 +38,14 @@ const buildTree = function(inorder, postorder) {
     // 创建中间节点
     const root = new TreeNode(rootVal);
 
+    
+    /**
+     * * 中左序：inorder.slice(0, rootIndex)
+     * * 中右序：inorder.slice(rootIndex + 1)
+     * 
+     * * 后左序：postorder.slice(0, rootIndex)
+     * * 后右序：postorder.slice(rootIndex)，因为此时后序的数组已经把元素删除了
+     */
     // 创建左节点
     root.left = buildTree(inorder.slice(0, rootIndex), postorder.slice(0, rootIndex));
     // 创建右节点
@@ -37,3 +53,17 @@ const buildTree = function(inorder, postorder) {
 
     return root;
 }
+
+
+
+// 测试
+// [3,9,20,null,null,15,7]
+inorder = [9,3,15,20,7]
+postorder = [9,15,7,20,3]
+
+// [-1]
+inorder1 = [-1]
+postorder1 = [-1]
+
+console.log('buildTree: ', buildTree(inorder, postorder))
+console.log('buildTree: ', buildTree(inorder1, postorder1))

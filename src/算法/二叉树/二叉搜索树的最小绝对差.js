@@ -10,7 +10,7 @@
  */
 
 // 递归 先转换为有序数组
-var getMinimumDifference = function (root) {
+const getMinimumDifference = function (root) {
     let arr = [];
     const buildArr = (root) => {
         if (root) {
@@ -32,7 +32,7 @@ var getMinimumDifference = function (root) {
 }
 
 // 递归 在递归的过程中更新最小值
-var getMinimumDifference = function(root) {
+const getMinimumDifference1 = function(root) {
     let res = Infinity
     let preNode = null
 
@@ -55,7 +55,7 @@ var getMinimumDifference = function(root) {
 }
 
 // 迭代 中序遍历
-var getMinimumDifference = function(root) {
+const getMinimumDifference2 = function(root) {
     let stack = []
     let cur = root
     let res = Infinity

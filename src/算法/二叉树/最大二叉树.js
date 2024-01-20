@@ -11,6 +11,8 @@
  * 示例 ：
  *  https://img-blog.csdnimg.cn/20210204154534796.png
  * 
+ * 输入：nums = [3,2,1,6,0,5]
+ * 
  * 提示：
  *  给定的数组的大小在 [1, 1000] 之间。
  */
@@ -20,7 +22,7 @@ function TreeNode(val, left, right) {
     this.right = (right === undefined ? null : right)
 }
 
-var constructMaximumBinaryTree = function (nums) {
+const constructMaximumBinaryTree = function(nums) {
     // 在左闭右开区间[left, right)，构造二叉树
     const BuildTree = (arr, left, right) => {
         if (left > right) return null;

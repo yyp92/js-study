@@ -8,8 +8,15 @@
  *  https://img-blog.csdnimg.cn/20201022164420763.png
  */
 
-// 递归
+function TreeNode(val, left, right) {
+    this.val = (val === undefined ? 0 : val)
+    this.left = (left === undefined ? null : left)
+    this.right = (right === undefined ? null : right)
+}
+
+// 递归 
 var sortedArrayToBST = function (nums) {
+    // * 区间定义是左闭右闭 [left, right]
     const buildTree = (Arr, left, right) => {
         if (left > right) return null;
 

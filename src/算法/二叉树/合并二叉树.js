@@ -12,7 +12,8 @@
  */
 
 // 递归法
-const mergeTrees = function (root1, root2) {
+const mergeTrees = function(root1, root2) {
+    // 前序遍历
     const preOrder = (root1, root2) => {
         // 如果root1为空，合并之后就应该是root2
         if (!root1) return root2
