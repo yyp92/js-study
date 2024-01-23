@@ -15,6 +15,8 @@
  */
 // 先遍历物品，再遍历背包
 const numSquares1 = function(n) {
+    // * dp[j]：和为j的完全平方数的最少数量为dp[j]
+
     let dp = new Array(n + 1).fill(Infinity)
     dp[0] = 0
 
@@ -27,8 +29,8 @@ const numSquares1 = function(n) {
     //         dp[j] = Math.min(dp[j], dp[j - val] + 1)
     //     }
     // }
-    for (let i = 1; i*i <= n; i++) {
-        let val = i*i
+    for (let i = 1; i * i <= n; i++) {
+        let val = i * i
 
         // 背包
         for (let j = val; j <= n; j++) {

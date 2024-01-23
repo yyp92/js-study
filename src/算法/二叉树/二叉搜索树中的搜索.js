@@ -30,7 +30,7 @@ const searchBST = function (root, val) {
 
 // 迭代法
 const searchBST1 = function (root, val) {
-    while (root !== null) {
+    while(root !== null) {
         // 左子树
         if (root.val > val) {
             root = root.left;

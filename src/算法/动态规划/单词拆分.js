@@ -25,6 +25,8 @@
  * 空间复杂度：O(n)
  */
 const wordBreak = (s, wordDict) => {
+    // * dp[i] : 字符串长度为i的话，dp[i]为true，表示可以拆分为一个或多个在字典中出现的单词。
+    
     // 初始化
     let dp = Array(s.length + 1).fill(false);
     dp[0] = true;

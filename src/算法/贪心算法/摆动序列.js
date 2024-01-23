@@ -27,18 +27,21 @@
 const wiggleMaxLength = function(nums) {
     if (nums.length <= 1) return nums.length
 
-    // 记录峰值个数，序列默认序列最右边有一个峰值
+    // * 记录峰值个数，序列默认序列最右边有一个峰值
     let result = 1
     // 前一对差值
     let preDiff = 0
     // 当前一对差值
     let curDiff = 0
 
+    // * 因为默认记录了最后一个，所以循环是 nums.length - 1
     for (let i = 0; i < nums.length - 1; i++) {
         curDiff = nums[i + 1] - nums[i]
 
         if ((curDiff > 0 && preDiff <= 0) || (curDiff < 0 && preDiff >= 0)) {
             result++
+
+            // * 写在里面就是处理单调有平坡的情况
             preDiff = curDiff
         }
     }

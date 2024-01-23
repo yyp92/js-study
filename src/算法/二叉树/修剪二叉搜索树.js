@@ -25,9 +25,9 @@ var trimBST = function (root, low, high) {
         return left;
     }
 
-    // root->left接入符合条件的左孩子
+    // root->left 接入符合条件的左孩子
     root.left = trimBST(root.left, low, high);
-    // root->right接入符合条件的右孩子
+    // root->right 接入符合条件的右孩子
     root.right = trimBST(root.right, low, high);
 
     return root;

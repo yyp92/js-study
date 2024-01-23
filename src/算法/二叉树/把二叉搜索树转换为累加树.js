@@ -39,9 +39,14 @@ var convertBST = function(root) {
     // 右中左遍历
     const ReverseInOrder = (cur) => {
         if (cur) {
+            // 右
             ReverseInOrder(cur.right);
+
+            // 中
             cur.val += pre;
             pre = cur.val;
+
+            // 左
             ReverseInOrder(cur.left);
         }
     }

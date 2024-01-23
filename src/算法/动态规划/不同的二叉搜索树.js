@@ -68,13 +68,16 @@
  *  可以看出我依然还是用动规五部曲来进行分析，会把题目的方方面面都覆盖到！
  */
 const numTrees = (n) => {
-    let dp = new Array(n+1).fill(0);
+    // dp[i]：1到i为节点组成的二叉搜索树的个数为dp[i]。
+    let dp = new Array(n + 1).fill(0);
     dp[0] = 1;
     dp[1] = 1;
 
     for (let i = 2; i <= n; i++) {
+        // 遍历所有以 j 为头结点
         for (let j = 1; j <= i; j++) {
-            dp[i] += dp[j-1] * dp[i-j];
+            // 以 j 为头结点， 左子树：j - 1，右子树：i - j
+            dp[i] += dp[j - 1] * dp[i - j];
         }
     }
 

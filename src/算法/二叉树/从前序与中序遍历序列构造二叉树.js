@@ -21,6 +21,13 @@ const buildTree = function(preorder, inorder) {
     // 创建中间节点
     const root = new TreeNode(rootVal); 
 
+    /**
+     * * 前左序：preorder.slice(0, rootIndex)
+     * * 前右序：preorder.slice(rootIndex)
+     * 
+     * * 中左序：inorder.slice(0, rootIndex)
+     * * 中右序：inorder.slice(rootIndex + 1)
+     */
     // 创建左节点
     root.left = buildTree(preorder.slice(0, index), inorder.slice(0, index));
     // 创建右节点

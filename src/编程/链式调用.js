@@ -61,7 +61,7 @@ class LazyMan {
         const fn = this.cb.shift()
         fn && fn()
     }
-  }
-  
-  const lz = new LazyMan('sf')
-  lz.eat(2).sleep(1).sleepFirst(5).drink(3)
+}
+
+const lz = new LazyMan('sf')
+lz.eat(2).sleep(1).sleepFirst(5).drink(3)

@@ -35,14 +35,16 @@
  *  时间复杂度：O(n)
  *  空间复杂度：O(n)
  */
- const maxSubArray = nums => {
+const maxSubArray = nums => {
+    // * dp[i]：包括下标i（以nums[i]为结尾）的最大连续子序列和为dp[i]
+
     // 数组长度，dp初始化
     const len = nums.length;
     let dp = new Array(len).fill(0);
     dp[0] = nums[0];
 
     // 最大值初始化为dp[0]
-    let max = dp[0];
+    let max = 0;
 
     for (let i = 1; i < len; i++) {
         dp[i] = Math.max(dp[i - 1] + nums[i], nums[i]);

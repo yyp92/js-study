@@ -28,6 +28,8 @@ const subsetsWithDup = function(nums) {
 
         for (let i = startIndex; i < nums.length; i++) {
             // 去重
+            // 而我们要对同一树层使用过的元素进行跳过
+            // * 注意这里使用i > startIndex
             if (i > startIndex && nums[i] === nums[i - 1]) {
                 continue
             }

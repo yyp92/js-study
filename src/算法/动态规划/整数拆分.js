@@ -58,11 +58,17 @@
  * @TODO: 待重新理解
  */
 const integerBreak = function(n) {
+    // dp[i]: 对 i 进行拆分，得到最大的乘积
     let dp = new Array(n + 1).fill(0)
     dp[2] = 1
 
+    /**
+     * j * (i - j) 拆成两个数
+     * j * dp[i - j] 拆成 大于等于3 个数
+     */
     for (let i = 3; i <= n; i++) {
-        for (let j = 1; j < i; j++) {
+        // 因为拆成大小相差不大的数才会得到最大值： j <= i / 2
+        for (let j = 1; j <= i / 2; j++) {
             dp[i] = Math.max(dp[i], dp[i - j] * j, (i - j) * j)
         }
     }

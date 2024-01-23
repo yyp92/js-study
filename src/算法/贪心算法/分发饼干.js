@@ -35,7 +35,9 @@ const findContentChildren = function(g, s) {
     let result = 0
     let index = s.length - 1
 
+    // g: 孩子胃口
     for (let i = g.length - 1; i >= 0; i--) {
+        // s: 饼干
         if (index >= 0 && s[index] >= g[i]) {
             result++
             index--

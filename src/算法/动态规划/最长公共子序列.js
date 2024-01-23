@@ -28,6 +28,8 @@
  */
  
 const longestCommonSubsequence = (text1, text2) => {
+    // * dp[i][j]：长度为[0, i - 1]的字符串text1与长度为[0, j - 1]的字符串text2的最长公共子序列为dp[i][j]
+
     let dp = Array.from(Array(text1.length + 1), () => Array(text2.length + 1).fill(0));
 
     for (let i = 1; i <= text1.length; i++) {

@@ -10,6 +10,8 @@
  *  解释: 第一步将"sea"变为"ea"，第二步将"eat"变为"ea"
  */
  const minDistance = (word1, word2) => {
+    // * dp[i][j]：以i-1为结尾的字符串word1，和以j-1位结尾的字符串word2，想要达到相等，所需要删除元素的最少次数
+    
     // 初始化
     let dp = Array.from(new Array(word1.length + 1), () => Array(word2.length + 1).fill(0));
     for (let i = 0; i <= word1.length; i++) {

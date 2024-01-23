@@ -16,11 +16,11 @@ var fourSum = function(nums, target) {
     nums.sort((a, b) => a - b);
     const res = [];
 
-    for (let i = 0; i < len - 3; i++) {
+    for (let i = 0; i < len - 2; i++) {
         // 去重i
         if (i > 0 && nums[i] === nums[i - 1]) continue;
 
-        for (let j = i + 1; j < len - 2; j++) {
+        for (let j = i + 1; j < len - 1; j++) {
             // 去重j
             if (j > i + 1 && nums[j] === nums[j - 1]) continue;
             let l = j + 1, r = len - 1;

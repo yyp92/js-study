@@ -41,6 +41,10 @@ var threeSum = function(nums) {
                 res.push([iNum, lNum, rNum])
                 l++
                 r--
+
+                // 去重
+                // while (l < r && nums[l] === nums[++l]);
+                // while (l < r && nums[r] === nums[--r]);
             }
         }
     }

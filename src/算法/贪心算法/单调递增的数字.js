@@ -36,7 +36,6 @@ const monotoneIncreasingDigits = function(n) {
         if (n[i - 1] > n[i]) {
             flag = i
             n[i - 1] -= 1
-            n[i] = 9
         }
     }
 
@@ -55,6 +54,8 @@ const monotoneIncreasingDigits = function(n) {
 const n1 = 10
 const n2 = 1234
 const n3 = 332
+const n4 = 1000
 console.log(monotoneIncreasingDigits(n1))
 console.log(monotoneIncreasingDigits(n2))
 console.log(monotoneIncreasingDigits(n3))
+console.log(monotoneIncreasingDigits(n4))

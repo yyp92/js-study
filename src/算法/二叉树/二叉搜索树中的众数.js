@@ -18,7 +18,7 @@
  */
 
 // 使用额外空间map的方法
-var findMode = function(root) {
+const findMode = function(root) {
     // 使用递归中序遍历
     let map = new Map();
 
@@ -61,7 +61,7 @@ var findMode = function(root) {
 };
 
 // 不使用额外空间，利用二叉树性质，中序遍历(有序)：
-var findMode = function(root) {
+const findMode1 = function(root) {
     // 不使用额外空间，使用中序遍历,设置出现最大次数初始值为1
     let count = 0, maxCount = 1;
     let pre = root, res = [];

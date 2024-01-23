@@ -23,6 +23,10 @@
  *  1 <= m, n <= 100
  */
 const findMaxForm = (strs, m, n) => {
+    /**
+     * dp[i][j]：最多有i个0和j个1的strs的最大子集的大小为dp[i][j]。
+     */
+
     // 初始化，默认为0
     const dp = Array.from(Array(m + 1), () => Array(n + 1).fill(0));
     let numOfZeros, numOfOnes;
@@ -36,7 +40,8 @@ const findMaxForm = (strs, m, n) => {
         for (let c of str) {
             if (c === '0') {
                 numOfZeros++;
-            } else {
+            }
+            else {
                 numOfOnes++;
             }
         }

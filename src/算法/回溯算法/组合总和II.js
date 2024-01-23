@@ -1,5 +1,6 @@
 /**
  * 组合总和II
+ * https://leetcode.cn/problems/combination-sum-ii/description/
  * 
  * 题意：
  *  给定一个数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。
@@ -82,6 +83,48 @@ const combinationSum = function(candidates, target) {
 };
 
 
+// 使用used去重
+const combinationSum2 = function(candidates, target) {
+    let res = [];
+    let path = [];
+    let total = 0;
+
+    const len = candidates.length;
+    candidates.sort((a, b) => a - b);
+    let used = new Array(len).fill(false);
+
+    const backtracking = (candidates, target, startIndex) => {
+        if (total === target) {
+            res.push([...path]);
+            return;
+        }
+
+        // 剪枝：total <= target
+        for (let i = startIndex; i < len && total <= target; i++) {
+            const cur = candidates[i];
+
+            // 树层去重
+            if (cur > target - total || (i > 0 && cur === candidates[i - 1] && !used[i - 1])) {
+                continue;
+            }
+
+            path.push(cur);
+            total += cur;
+            used[i] = true;
+
+            backtracking(candidates, target, i + 1);
+
+            path.pop();
+            total -= cur;
+            used[i] = false;
+        }
+    }
+
+    backtracking(candidates, target, 0);
+
+    return res;
+};
+
 
 // 测试
 const candidates = [10,1,2,7,6,1,5]
@@ -90,3 +133,5 @@ const candidates1 = [2,5,2,1,2]
 const target1 = 5
 console.log(combinationSum(candidates, target))
 console.log(combinationSum(candidates1, target1))
+console.log(combinationSum2(candidates, target))
+console.log(combinationSum2(candidates1, target1))

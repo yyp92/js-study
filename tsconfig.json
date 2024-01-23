@@ -1,6 +1,7 @@
 // tsconfig.json TypeScript项目的配置文件，可以通过读取它来设置TypeScript编译器的编译参数。
 {
     "compilerOptions": {
+      "lib": ["es2015", "dom"],
       /* Basic Options */
       // "incremental": true,                   /* Enable incremental compilation */
       // 目标语言的版本

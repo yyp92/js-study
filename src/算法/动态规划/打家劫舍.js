@@ -20,6 +20,8 @@
  *  0 <= nums[i] <= 400
  */
  const rob = nums => {
+    // * dp[i]：考虑下标i（包括i）以内的房屋，最多可以偷窃的金额为dp[i]。
+    
     // 数组长度
     const len = nums.length;
     // dp数组初始化

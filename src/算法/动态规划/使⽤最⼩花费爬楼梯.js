@@ -31,17 +31,36 @@
 
 // 时间复杂度：O(n)
 // 空间复杂度：O(1)
-const minCostClimbingStairs = (cost) => {
-    const dp = [cost[0], cost[1]]
+// const minCostClimbingStairs = (cost) => {
+//     // dp数组数组的含义： 到达 i 位置的最小花费为 dp[i]
+//     const dp = [cost[0], cost[1]]
 
-    for (let i = 2; i <= cost.length - 1; i++) {
-        dp[i] = Math.min(dp[0], dp[1]) + cost[i]
-        dp[0] = dp[1]
-        dp[1] = dp[i]
+//     for (let i = 2; i <= cost.length - 1; i++) {
+//         dp[i] = Math.min(dp[0], dp[1]) + cost[i]
+//         dp[0] = dp[1]
+//         dp[1] = dp[i]
+//     }
+
+//     return Math.min(dp[0], dp[1])
+// }
+
+
+// 最新 leetcode 题意， 2021-01-15
+const minCostClimbingStairs = function(cost) {
+    /**
+     * 初始化
+     * 你可以选择从下标为 0 或下标为 1 的台阶开始爬楼梯。
+     * 因为只有跳了才会花费,所有初始化 dp[0] = 0, dp[1] = 0
+     */
+    const dp = [0, 0]
+
+    for (let i = 2; i <= cost.length; ++i) {
+      dp[i] = Math.min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2])
     }
 
-    return Math.min(dp[0], dp[1])
-}
+    return dp[cost.length]
+};
+
 
 
 // 测试

@@ -38,8 +38,8 @@ const isValidBST = function (root) {
 
 // 递归中解决
 const isValidBST1 = function (root) {
-    let pre = null;
     // 用来记录前一个节点
+    let pre = null;
 
     const inOrder = (root) => {
         if (root === null) {
@@ -64,3 +64,33 @@ const isValidBST1 = function (root) {
 
     return inOrder(root);
 }
+
+
+
+/**
+ * 迭代法
+ */
+const isValidBST2 = function (root) {
+	const queue = [];
+	let cur = root;
+	let pre = null;
+
+	while(cur !== null || queue.length !== 0) {
+		if (cur !== null) {
+			queue.push(cur);
+			cur = cur.left;
+		}
+        else {
+			cur = queue.pop();
+
+			if (pre !== null && cur.val <= pre.val) {
+				return false;
+			}
+
+			pre = cur;
+			cur = cur.right;
+		}
+	}
+
+	return true;
+};

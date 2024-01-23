@@ -13,6 +13,12 @@
  *  新值和原始二叉搜索树中的任意节点值都不同
  */
 
+function TreeNode(val, left, right) {
+    this.val = (val === undefined ? 0 : val)
+    this.left = (left === undefined ? null : left)
+    this.right = (right === undefined ? null : right)
+}
+
 // 有返回值的递归写法
 var insertIntoBST = function (root, val) {
     const setInOrder = (root, val) => {

@@ -63,6 +63,8 @@
 // 时间复杂度：O(m * n)
 // 空间复杂度：O(m * n)
 // const solution = (m, n) => {
+//     // dp[i][j] ：表示从（0 ，0）出发，到(i, j) 有dp[i][j]条不同的路径。
+
 //     const dp = Array.from({length: m}).map(
 //         () => new Array(n).fill(0)
 //     );

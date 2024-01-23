@@ -11,6 +11,10 @@
  */
 
 function testWeightBagProblem(wight, value, size) {
+    /**
+     * dp[j]: 容量为 j 的背包所背最大价值
+     */
+
     const len = wight.length;
     const dp = Array(size + 1).fill(0);
 

@@ -1,5 +1,6 @@
 /**
  * 组合总和
+ * https://leetcode.cn/problems/combination-sum/description/
  * 
  * 题意：
  *  给定一个无重复元素的数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。
@@ -63,12 +64,16 @@
 const combinationSum = function(candidates, target) {
     const res = []
     const path = [];
-    candidates.sort(); // 排序
-    backtracking(0, 0);
+
+    // 排序
+    candidates.sort((a, b) => a - b); 
+
+    backtracking(candidates, target, 0, 0);
+
     return res;
 
-    function backtracking(startIndex, sum) {
-        if (sum > target) return;
+    function backtracking(candidates, target, startIndex, sum) {
+        // if (sum > target) return;
 
         if (sum === target) {
             res.push(Array.from(path));
@@ -79,10 +84,12 @@ const combinationSum = function(candidates, target) {
         for (let i = startIndex; i < candidates.length && sum + candidates[i] <= target; i++ ) {
             const n = candidates[i];
 
-            if (n > target - sum) continue;
+            // if (n > target - sum) continue;
+
             path.push(n);
             sum += n;
-            backtracking(i, sum);
+            
+            backtracking(candidates, target, i, sum);
 
             // 回溯
             path.pop();
