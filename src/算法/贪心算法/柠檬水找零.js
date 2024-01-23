@@ -51,11 +51,11 @@ const lemonadeChange = function(bills) {
     for (let i = 0; i < bills.length; i++) {
         let bill = bills[i]
 
-        // 情况一
+        // 情况一: 账单是5，直接收下
         if (bill === 5) {
             fiveCount += 1
         } 
-        // 情况二
+        // 情况二：账单是10，消耗一个5，增加一个10
         else if (bill === 10) {
             if (fiveCount > 0) {
                 fiveCount -=1
@@ -65,7 +65,7 @@ const lemonadeChange = function(bills) {
                 return false
             }
         } 
-        // 情况三
+        // 情况三：账单是20，优先消耗一个10和一个5，如果不够，再消耗三个5} bills 
         else {
             // 优先消耗10美元，因为5美元的找零用处更大，能多留着就多留着
             if (tenCount > 0 && fiveCount > 0) {

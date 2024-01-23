@@ -41,7 +41,9 @@ const permuteUnique = function (nums) {
                 continue
             }
 
+            // 如果同⼀树⽀nums[i]没使⽤过开始处理
             if (!used[i]) {
+                // 标记同⼀树⽀nums[i]使⽤过，防止同一树枝重复使用
                 used[i] = true
                 path.push(nums[i])
 
