@@ -18,6 +18,18 @@
  *  题目数据保证答案唯一，换句话说，数组中前 k 个高频元素的集合是唯一的。
  *  你可以按任意顺序返回答案。
  */
+
+/**
+ * ! 最小堆的知识点
+ * 
+ * 最大堆：根节点的键值是所有堆节点键值中最大者，且每个父节点的值都比子节点的值大
+ * 最小堆：根节点的键值是所有堆节点键值中最小者，且每个父节点的值都比子节点的值小
+ * 
+ * * 首先需要实现一个 最小堆的class, 初始化一个数组， 用来存放最小堆。 同时， parent 和 child 的关系：
+ * * * left child: i * 2 + 1
+ * * * right child: i * 2 + 2,
+ * * * parent: Math.floor((i - 1) / 2)
+ */
   
 function PriorityQueue(compareFn) {
     this.compareFn = compareFn;
@@ -27,7 +39,9 @@ function PriorityQueue(compareFn) {
 // 添加
 PriorityQueue.prototype.push = function(item) {
     this.queue.push(item);
+    // 记录推入元素下标
     let index = this.queue.length - 1;
+    // 记录父节点下标
     let parent = Math.floor((index - 1) / 2);
 
     // 上浮
@@ -46,8 +60,9 @@ PriorityQueue.prototype.pop = function() {
     // 把最后一个节点移到堆顶
     this.queue[0] = this.queue.pop();
 
+    // 记录下沉元素下标
     let index = 0;
-    // 左子节点下标，left + 1 就是右子节点下标
+    // * 左子节点下标，left + 1 就是右子节点下标
     let left = 1;
     let selectedChild = this.compare(left, left + 1) > 0 ? left + 1 : left;
 
