@@ -72,7 +72,7 @@ const maxSlidingWindow = function (nums, k) {
     // 剩下移动的窗口
     while (j < nums.length) {
         helperQueue.enqueue(nums[j]);
-        helperQueue.dequeue(nums[i]);
+        // helperQueue.dequeue(nums[i]);
         resArr.push(helperQueue.front());
         i++, j++;
     }
@@ -85,3 +85,4 @@ const maxSlidingWindow = function (nums, k) {
 // [3, 3, 5, 5, 6, 7]
 const nums = [1, 3, -1, -3, 5, 3, 6, 7]
 const k = 3
+console.log(maxSlidingWindow(nums, k))
