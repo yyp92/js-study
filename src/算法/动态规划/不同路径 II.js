@@ -65,6 +65,7 @@
  */
 
 const uniquePathsWithObstacles = function(obstacleGrid) {
+    // * dp[i][j] ：表示从（0 ，0）出发，到(i, j) 有dp[i][j]条不同的路径。
     const m = obstacleGrid.length
     const n = obstacleGrid[0].length
     const dp = Array(m).fill().map(item => Array(n).fill(0))
@@ -79,14 +80,27 @@ const uniquePathsWithObstacles = function(obstacleGrid) {
     
     for (let i = 1; i < m; ++i) {
         for (let j = 1; j < n; ++j) {
-            dp[i][j] = obstacleGrid[i][j] === 1 ? 0 : dp[i - 1][j] + dp[i][j - 1]
+            // dp[i][j] = obstacleGrid[i][j] === 1 ? 0 : dp[i - 1][j] + dp[i][j - 1]
+
+            // 遇到障碍
+            if (obstacleGrid[i][j] === 1) {
+                continue
+            }
+
+            dp[i][j] = dp[i - 1][j] + dp[i][j - 1]
         }
     }
         
     return dp[m - 1][n - 1]
 };
 
-// 优化后的版本(一维数组储存)
+
+/**
+ * 优化后的版本(一维数组储存)
+ * 
+ * 时间复杂度：O(n × m)，n、m 分别为obstacleGrid 长度和宽度
+ * 空间复杂度：O(m)} obstacleGrid 
+ */
 const uniquePathsWithObstaclesAfter = function(obstacleGrid) {
     // 如果起点就有障碍，则为0
     if (obstacleGrid[0][0] === 1) {
