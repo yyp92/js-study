@@ -25,46 +25,45 @@
  * 空间复杂度：O(n)
  */
 
-// const climbStairs = function(n) {
-//     // dp[i] 为第 i 阶楼梯有多少种方法爬到楼顶
-//     // dp[i] = dp[i - 1] + dp[i - 2]
-//     let dp = [1 , 2]
+const climbStairs = function(n) {
+    // * dp[i] 为第 i 阶楼梯有多少种方法爬到楼顶
+    // dp[i] = dp[i - 1] + dp[i - 2]
 
-//     for(let i = 2; i < n; i++) {
-//         dp[i] = dp[i - 1] + dp[i - 2]
-//     }
+    /**
+     * 我就认为跑到第0层，方法就是0啊，一步只能走一个台阶或者两个台阶，然而楼层是0，直接站楼顶上了，就是不用方法，dp[0]就应该是0.
+     * 需要注意的是：题目中说了n是一个正整数，题目根本就没说n有为0的情况。
+     * 所以本题其实就不应该讨论dp[0]的初始化！
+     */
+    let dp = [0, 1, 2]
 
-//     return dp[n - 1]
-// };
+    for (let i = 3; i <= n; i++) {
+        dp[i] = dp[i - 1] + dp[i - 2]
+    }
+
+    return dp[n]
+};
 
 
 /**
  * 时间复杂度：O(n)
  * 空间复杂度：O(1)
  */
-const climbStairs = function(n) {
-    const dp = [1, 2]
+// const climbStairs = function(n) {
+//     // * dp[i]： 爬到第i层楼梯，有dp[i]种方法
+//     const dp = [1, 2]
 
-    if (n === 1) {
-        return dp[0]
-    }
+//     if (n === 1) {
+//         return dp[0]
+//     }
 
-    for (let i = 3; i <= n; i++) {
-        const sum = dp[0] + dp[1] 
-        dp[0] = dp[1]
-        dp[1] = sum
-    }
+//     for (let i = 3; i <= n; i++) {
+//         const sum = dp[0] + dp[1] 
+//         dp[0] = dp[1]
+//         dp[1] = sum
+//     }
 
-    return dp[1]
-}
-
-/**
- * @TODO:
- * 扩展
- * ⼀步⼀个台阶，两个台阶，三个台阶，直到 m个台阶，有多少种⽅法爬
-到n阶楼顶。
- */
-
+//     return dp[1]
+// }
 
 
 // 测试
@@ -73,3 +72,14 @@ console.log(climbStairs(2))
 console.log(climbStairs(3))
 console.log(climbStairs(4))
 console.log(climbStairs(5))
+
+
+
+
+/**
+ * @TODO:
+ * 扩展
+ * ⼀步⼀个台阶，两个台阶，三个台阶，直到 m个台阶，有多少种⽅法爬
+到n阶楼顶。
+ */
+

@@ -48,6 +48,8 @@
 // 最新 leetcode 题意， 2021-01-15
 const minCostClimbingStairs = function(cost) {
     /**
+     * * dp[i]的定义：到达第i台阶所花费的最少体力为dp[i]。
+     * 
      * 初始化
      * 你可以选择从下标为 0 或下标为 1 的台阶开始爬楼梯。
      * 因为只有跳了才会花费,所有初始化 dp[0] = 0, dp[1] = 0

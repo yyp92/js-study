@@ -27,13 +27,14 @@
  */
 
 const fib = function(n) {
+    // * dp[i]的定义为：第i个数的斐波那契数值是dp[i]
     let dp = [0, 1]
 
     for(let i = 2; i <= n; i++) {
         dp[i] = dp[i - 1] + dp[i - 2]
     }
 
-    console.log(dp)
+    // console.log(dp)
     return dp[n]
 };
 
@@ -41,3 +42,31 @@ const fib = function(n) {
 console.log('res: ', fib(2))
 console.log('res: ', fib(3))
 console.log('res: ', fib(4))
+
+
+
+
+
+/**
+ * 解法二： 时间复杂度O(N)，空间复杂度O(1)
+ */
+const fibDeep = function(n) {
+    // 动规状态转移中，当前结果只依赖前两个元素的结果，所以只要两个变量代替dp数组记录状态过程。将空间复杂度降到O(1)
+    let pre1 = 0
+    let pre2 = 1
+
+    if (n === 0) return 0
+    if (n === 1) return 1
+
+    for(let i = 2; i <= n; i++) {
+        const sum =  pre1 + pre2
+        pre1 = pre2
+        pre2 = sum
+    }
+
+    return pre2
+};
+
+console.log('res: ', fibDeep(2))
+console.log('res: ', fibDeep(3))
+console.log('res: ', fibDeep(4))

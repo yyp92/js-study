@@ -29,6 +29,8 @@
  *  此时大家应该发现这就是一个完全背包问题了！
  */
 const climbStairs = function(n, m) {
+    // * dp[i]：爬到有i个台阶的楼顶，有dp[i]种方法。
+
     const dp = new Array(n + 1).fill(0);
     // const m = 2;
     dp[0] = 1;
