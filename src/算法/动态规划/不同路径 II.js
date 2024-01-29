@@ -68,18 +68,18 @@ const uniquePathsWithObstacles = function(obstacleGrid) {
     // * dp[i][j] ：表示从（0 ，0）出发，到(i, j) 有dp[i][j]条不同的路径。
     const m = obstacleGrid.length
     const n = obstacleGrid[0].length
-    const dp = Array(m).fill().map(item => Array(n).fill(0))
+    const dp = new Array(m).fill().map(item => new Array(n).fill(0))
     
     // 初始化，第一行和第一列
-    for (let i = 0; i < m && obstacleGrid[i][0] === 0; ++i) {
+    for (let i = 0; i < m && obstacleGrid[i][0] === 0; i++) {
         dp[i][0] = 1
     }
-    for (let i = 0; i < n && obstacleGrid[0][i] === 0; ++i) {
+    for (let i = 0; i < n && obstacleGrid[0][i] === 0; i++) {
         dp[0][i] = 1
     }
     
-    for (let i = 1; i < m; ++i) {
-        for (let j = 1; j < n; ++j) {
+    for (let i = 1; i < m; i++) {
+        for (let j = 1; j < n; j++) {
             // dp[i][j] = obstacleGrid[i][j] === 1 ? 0 : dp[i - 1][j] + dp[i][j - 1]
 
             // 遇到障碍
