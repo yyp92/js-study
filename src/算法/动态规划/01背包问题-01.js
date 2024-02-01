@@ -12,7 +12,7 @@
 
 function testweightbagproblem (weight, value, size) {
     /**
-     * dp[i][j]: [0, i] 物品任取放到容量为 j 的背包的最大价值
+     * * dp[i][j]: [0, i] 物品任取放到容量为 j 的背包的最大价值
      * 
      * 不放物品i: dp[i-1][j]
      * 放物品i: dp[i-1][j-weight[i]] + value[i]
@@ -22,8 +22,13 @@ function testweightbagproblem (weight, value, size) {
     const len = weight.length;
     // Array.from() 可以通过以下方式来创建数组对象：伪数组对象（拥有一个 length 属性和若干索引属性的任意对象）
     const dp = Array.from({length: len}).map(
-        () => new Array(size + 1).fill(15)
+        () => new Array(size + 1).fill(0)
     );
+
+    // 初始化
+    for (let j = weight[0]; j <= size; j++) {
+        dp[0][j] = value[0]
+    }
     
     // 遍历物品
     for (let i = 1; i < len; i++) {
@@ -36,14 +41,14 @@ function testweightbagproblem (weight, value, size) {
                 )
             }
             // 这个是为了展现dp数组⾥元素的变化
-            // else {
-            //     dp[i][j] = dp[i - 1][j];
-            // }
+            else {
+                dp[i][j] = dp[i - 1][j];
+            }
         }
     }
   
     console.table(dp);
-    return dp[len-1][size];
+    return dp[len - 1][size];
 }
 
 // 测试

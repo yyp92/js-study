@@ -31,9 +31,9 @@
  *  ! 如果求排列数就是外层for遍历背包，内层for循环遍历物品。
  */
 const change = (amount, coins) => {
-    // dp[j]：凑成总金额j的货币组合数为dp[j]
+    // * dp[j]：凑成总金额j的货币组合数为dp[j]
 
-    let dp = Array(amount + 1).fill(0);
+    let dp = new Array(amount + 1).fill(0);
     // 初始化
     dp[0] = 1;
 

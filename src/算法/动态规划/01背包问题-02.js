@@ -10,19 +10,20 @@
  * 问背包能背的物品最大价值是多少？
  */
 
-function testWeightBagProblem(wight, value, size) {
+function testWeightBagProblem(weight, value, size) {
     /**
-     * dp[j]: 容量为 j 的背包所背最大价值
+     * * dp[j]: 容量为 j 的背包所背最大价值
      */
 
-    const len = wight.length;
-    const dp = Array(size + 1).fill(0);
+    const len = weight.length;
+    const dp = new Array(size + 1).fill(0);
 
     // 物品
-    for (let i = 1; i <= len; i++) {
+    for (let i = 0; i < len; i++) {
         // 背包 - 倒序遍历
-        for (let j = size; j >= wight[i - 1]; j--) {
-            dp[j] = Math.max(dp[j], value[i - 1] + dp[j - wight[i - 1]]);
+        // * 倒序遍历是为了保证物品i只被放入一次
+        for (let j = size; j >= weight[i]; j--) {
+            dp[j] = Math.max(dp[j], dp[j - weight[i]] + value[i]);
         }
     }
     console.log(dp)

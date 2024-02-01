@@ -72,8 +72,14 @@
  *  这道题目就是一道01背包应用类的题目，需要我们拆解题目，然后套入01背包的场景。
  *  01背包相对于本题，主要要理解，题目中物品是nums[i]，重量是nums[i]，价值也是nums[i]，背包体积是sum/2。
  */
+
+/**
+ * *相关题目：
+ * 698.划分为k个相等的子集
+ * 473.火柴拼正方形
+ */
 const canPartition = function(nums) {
-    // 01背包中，dp[j] 表示： 容量为j的背包，所背的物品价值最大可以为dp[j]。
+    // * 01背包中，dp[j] 表示： 容量为j的背包，所背的物品价值最大可以为dp[j]。
     
     // 计算总和
     const sum = (nums.reduce((p, v) => p + v));
@@ -81,22 +87,25 @@ const canPartition = function(nums) {
     // 22 -> 10110, 21 -> 10101
     // 奇数的肯定是不能等和拆分
     // if (sum & 1) return false;
-    if (sum % 2 === 1) return false;
+    if (sum % 2 === 1) {
+        return false;
+    }
 
-    const dp = Array(sum / 2 + 1).fill(0);
+    const target = sum / 2;
+    const dp = new Array(target + 1).fill(0);
 
     // 开始 01背包，物品数量
     for (let i = 0; i < nums.length; i++) {
         // 每一个元素一定是不可重复放入，所以从大到小遍历
         // 背包容量
-        for (let j = sum / 2; j >= nums[i]; j--) {
+        for (let j = target; j >= nums[i]; j--) {
             dp[j] = Math.max(dp[j], dp[j - nums[i]] + nums[i]);
-
-            // 集合中的元素正好可以凑成总和target
-            if (dp[j] === sum / 2) {
-                return true;
-            }
         }
+    }
+
+    // 集合中的元素正好可以凑成总和target
+    if (dp[target] === target) {
+        return true;
     }
 
     return false

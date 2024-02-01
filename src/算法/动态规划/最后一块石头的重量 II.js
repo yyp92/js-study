@@ -64,7 +64,7 @@
 
 const lastStoneWeightII = function (stones) {
     /**
-     * dp[j]表示容量（这里说容量更形象，其实就是重量）为j的背包，最多可以背最大重量为dp[j]。
+     * * dp[j]表示容量（这里说容量更形象，其实就是重量）为j的背包，最多可以背最大重量为dp[j]。
      */
     
     // 计算总质量
@@ -81,10 +81,12 @@ const lastStoneWeightII = function (stones) {
         }
     }
 
+    // 那么分成两堆石头，一堆石头的总重量是dp[target]，另一堆就是sum - dp[target]。
+    // 在计算target的时候，target = sum / 2 因为是向下取整，所以sum - dp[target] 一定是大于等于dp[target]的。
     return sum - dp[dpLen] - dp[dpLen];
 };
 
 
 // 测试
-const arr  = [2,7,4,1,8,1] // 1
+const arr  = [2, 7, 4, 1, 8, 1] // 1
 console.log(lastStoneWeightII(arr))
