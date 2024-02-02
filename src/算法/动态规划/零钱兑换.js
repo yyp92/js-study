@@ -23,6 +23,7 @@
  *  1 <= coins[i] <= 2^31 - 1
  *  0 <= amount <= 10^4
  */
+// 先遍历物品再遍历背包
 const coinChange = (coins, amount) => {
     // * dp[j]：凑足总额为j所需钱币的最少个数为dp[j]
     
@@ -30,7 +31,7 @@ const coinChange = (coins, amount) => {
         return 0;
     }
 
-    let dp = Array(amount + 1).fill(Infinity);
+    let dp = new Array(amount + 1).fill(Infinity);
     dp[0] = 0;
 
     // 遍历物品
@@ -38,6 +39,31 @@ const coinChange = (coins, amount) => {
         // 遍历背包
         for (let j = coins[i]; j <= amount; j++) {
             dp[j] = Math.min(dp[j - coins[i]] + 1, dp[j]);
+        }
+    }
+
+    // 没找到能装满背包的, 就返回-1
+    return dp[amount] === Infinity ? -1 : dp[amount];
+}
+
+// 先遍历背包再遍历物品
+const coinChange1 = (coins, amount) => {
+    // * dp[j]：凑足总额为j所需钱币的最少个数为dp[j]
+    
+    if (!amount) {
+        return 0;
+    }
+
+    let dp = new Array(amount + 1).fill(Infinity);
+    dp[0] = 0;
+
+    // 遍历背包
+    for (let i = 1; i <= amount; i++) {
+        // 遍历物品
+        for (let j = 0; j < coins.length; j++) {
+            if (i - coins[j] >= 0 && dp[i - coins[j]] !== Infinity) {
+                dp[i] = Math.min(dp[i - coins[j]] + 1, dp[i]);
+            }   
         }
     }
 
@@ -57,8 +83,13 @@ const coins4 = [1]
 const amount4 = 1
 const coins5 = [1]
 const amount5 = 2
-console.log(coinChange(coins1, amount1))
-console.log(coinChange(coins2, amount2))
-console.log(coinChange(coins3, amount3))
-console.log(coinChange(coins4, amount4))
-console.log(coinChange(coins5, amount5))
+// console.log(coinChange(coins1, amount1))
+// console.log(coinChange(coins2, amount2))
+// console.log(coinChange(coins3, amount3))
+// console.log(coinChange(coins4, amount4))
+// console.log(coinChange(coins5, amount5))
+console.log(coinChange1(coins1, amount1))
+console.log(coinChange1(coins2, amount2))
+console.log(coinChange1(coins3, amount3))
+console.log(coinChange1(coins4, amount4))
+console.log(coinChange1(coins5, amount5))

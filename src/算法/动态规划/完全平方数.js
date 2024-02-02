@@ -36,6 +36,8 @@ const numSquares1 = function(n) {
         for (let j = val; j <= n; j++) {
             dp[j] = Math.min(dp[j], dp[j - val] + 1)
         }
+
+        console.log('dp: ', [...dp])
     }
 
     return dp[n]
@@ -62,6 +64,6 @@ const numSquares2 = function(n) {
 const n1 = 12
 const n2 = 13
 console.log(numSquares1(n1))
-console.log(numSquares1(n2))
-console.log(numSquares2(n1))
-console.log(numSquares2(n2))
+// console.log(numSquares1(n2))
+// console.log(numSquares2(n1))
+// console.log(numSquares2(n2))

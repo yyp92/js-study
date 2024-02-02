@@ -12,7 +12,7 @@
  */
  const combinationSum4 = (nums, target) => {
     /**
-     * dp[i]: 凑成目标正整数为i的排列个数为dp[i]
+     * * dp[i]: 凑成目标正整数为i的排列个数为dp[i]
      */
     
     let dp = Array(target + 1).fill(0);

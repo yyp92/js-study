@@ -24,11 +24,13 @@
  * 时间复杂度：O(n^3)，因为substr返回子串的副本是O(n)的复杂度（这里的n是substring的长度）
  * 空间复杂度：O(n)
  */
+
+// 此题其实是求排列数
 const wordBreak = (s, wordDict) => {
     // * dp[i] : 字符串长度为i的话，dp[i]为true，表示可以拆分为一个或多个在字典中出现的单词。
     
     // 初始化
-    let dp = Array(s.length + 1).fill(false);
+    let dp = new Array(s.length + 1).fill(false);
     dp[0] = true;
 
     // 遍历背包
