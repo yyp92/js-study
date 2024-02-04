@@ -41,7 +41,7 @@ const robRange = (nums, start, end) => {
     // * dp[i]：考虑下标i（包括i）以内的房屋，最多可以偷窃的金额为dp[i]。
     
     // 初始化
-    const dp = Array(nums.length).fill(0)
+    const dp = new Array(nums.length).fill(0)
     dp[start] = nums[start]
     dp[start + 1] = Math.max(nums[start], nums[start + 1])
     

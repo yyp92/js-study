@@ -49,6 +49,8 @@ function testMultiPack() {
       }
     }
     console.log(dp);
+
+    return dp[bagSize]
 }
 
 testMultiPack();

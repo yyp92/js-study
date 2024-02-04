@@ -19,12 +19,13 @@
  *  0 <= nums.length <= 100
  *  0 <= nums[i] <= 400
  */
- const rob = nums => {
+const rob = nums => {
     // * dp[i]：考虑下标i（包括i）以内的房屋，最多可以偷窃的金额为dp[i]。
     
     // 数组长度
     const len = nums.length;
     // dp数组初始化
+    // const dp = new Array(nums.length).fill(0)
     const dp = [nums[0], Math.max(nums[0], nums[1])];
 
     // 从下标2开始遍历
