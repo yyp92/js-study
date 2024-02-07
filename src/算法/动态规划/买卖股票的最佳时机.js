@@ -21,6 +21,8 @@
  *  空间复杂度：$O(1)$
  */
 const maxProfit = prices => {
+    // * dp[i][0] 表示第i天持有股票所得最多现金 
+    // * dp[i][1] 表示第i天不持有股票所得最多现金
     const len = prices.length;
 
     // 创建dp数组
@@ -47,9 +49,44 @@ const maxProfit = prices => {
     return dp[len - 1][1];
 }
 
+// 使用滚动数组复杂度
+const maxProfit1 = prices => {
+    // * dp[i][0] 表示第i天持有股票所得最多现金 
+    // * dp[i][1] 表示第i天不持有股票所得最多现金
+    const len = prices.length;
+
+    // * 注意这里只开辟了一个2 * 2大小的二维数组
+    // 创建dp数组
+    // 记录一次交易，一次交易有买入卖出两种状态
+    // [0, 0] --> 0代表持有，1代表卖出
+    const dp = new Array(2).fill([0, 0]);
+
+    // dp数组初始化
+    // 第0天持有股票，此时的持有股票就一定是买入股票了
+    // 第0天不持有股票，不持有股票那么现金就是0
+    dp[0] = [-prices[0], 0];
+
+    for (let i = 1; i < len; i++) {
+        // 更新dp[i]
+        dp[i % 2] = [
+            // 前一天持有；或当天买入
+            Math.max(dp[(i - 1) % 2][0], -prices[i]),
+
+            // 前一天就不持有股票，或者当天卖出股票
+            Math.max(dp[(i - 1) % 2][1], prices[i] + dp[(i - 1) % 2][0]),
+        ];
+    }
+
+    return dp[(len - 1) % 2][1];
+}
+
+
 
 // 测试
 const prices1 = [7,1,5,3,6,4]
 const prices2 = [7,6,4,3,1]
-console.log(maxProfit(prices1))
-console.log(maxProfit(prices2))
+// console.log(maxProfit(prices1))
+// console.log(maxProfit(prices2))
+
+console.log(maxProfit1(prices1))
+console.log(maxProfit1(prices2))

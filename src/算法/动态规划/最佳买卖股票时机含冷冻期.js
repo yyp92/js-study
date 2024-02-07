@@ -19,6 +19,7 @@
  *  3：状态四: 达到冷冻期状态
  */
 const maxProfit = (prices) => {
+    // * dp[i][j]: 第i天状态为j，所剩的最多现金为dp[i][j]。
     if (prices.length < 2) {
         return 0
     }
@@ -26,33 +27,33 @@ const maxProfit = (prices) => {
         return Math.max(0, prices[1] - prices[0]);
     }
 
-    let dp = Array.from(Array(prices.length), () => Array(4).fill(0));
+    let dp = Array.from(new Array(prices.length), () => new Array(4).fill(0));
     dp[0][0] = 0 - prices[0];
 
     for (i = 1; i < prices.length; i++) {
-        // 达到买入股票状态（状态一）即：dp[i][0]，有两个具体操作：
+        // * 达到买入股票状态（状态一）即：dp[i][0]，有两个具体操作：
         // 操作一：前一天就是持有股票状态（状态一），dp[i][0] = dp[i - 1][0]
         // 操作二：今天买入了，有两种情况
         // 前一天是冷冻期（状态四），dp[i - 1][3] - prices[i]
         // 前一天是保持卖出股票状态（状态二），dp[i - 1][1] - prices[i]
         // 所以操作二取最大值，即：max(dp[i - 1][3], dp[i - 1][1]) - prices[i]
-        dp[i][0] = Math.max(dp[i - 1][0], Math.max(dp[i-1][1], dp[i-1][3]) - prices[i]);
+        dp[i][0] = Math.max(dp[i - 1][0], Math.max(dp[i - 1][1], dp[i - 1][3]) - prices[i]);
 
-        // 达到保持卖出股票状态（状态二）即：dp[i][1]，有两个具体操作：
+        // * 达到保持卖出股票状态（状态二）即：dp[i][1]，有两个具体操作：
         // 操作一：前一天就是状态二
         // 操作二：前一天是冷冻期（状态四）
         // dp[i][1] = max(dp[i - 1][1], dp[i - 1][3]);
-        dp[i][1] = Math.max(dp[i -1][1], dp[i - 1][3]);
+        dp[i][1] = Math.max(dp[i - 1][1], dp[i - 1][3]);
 
-        // 达到今天就卖出股票状态（状态三），即：dp[i][2] ，只有一个操作：
+        // * 达到今天就卖出股票状态（状态三），即：dp[i][2] ，只有一个操作：
         // 操作一：昨天一定是买入股票状态（状态一），今天卖出
         // 即：dp[i][2] = dp[i - 1][0] + prices[i];
-        dp[i][2] = dp[i-1][0] + prices[i];
+        dp[i][2] = dp[i - 1][0] + prices[i];
 
-        // 达到冷冻期状态（状态四），即：dp[i][3]，只有一个操作：
+        // * 达到冷冻期状态（状态四），即：dp[i][3]，只有一个操作：
         // 操作一：昨天卖出了股票（状态三）
         // dp[i][3] = dp[i - 1][2];
-        dp[i][3] = dp[i-1][2];
+        dp[i][3] = dp[i - 1][2];
     }
 
     return Math.max(dp[prices.length - 1][1], dp[prices.length - 1][2], dp[prices.length - 1][3]);

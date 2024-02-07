@@ -25,17 +25,19 @@
  *  0 <= prices[i] <= 10^5
  * 
  * 一天一共就有五个状态：
- *  0 没有操作
- *  1 第一次买入
- *  2 第一次卖出
- *  3 第二次买入
- *  4 第二次卖出
+ *  0 没有操作 （其实我们也可以不设置这个状态）
+ *  1 第一次持有股票
+ *  2 第一次不持有股票
+ *  3 第二次持有股票
+ *  4 第二次不持有股票
  */
 
 // 版本一
 // 时间复杂度：O(n)
 // 空间复杂度：O(n × 5)
 const maxProfit = prices => {
+    // * dp[i][j] 表示第i天状态j所剩最大现金
+    // * i表示第i天，j为 [0 - 4] 五个状态
     const len = prices.length;
     const dp = new Array(len).fill(0).map(x => new Array(5).fill(0));
 
@@ -43,10 +45,15 @@ const maxProfit = prices => {
     dp[0][3] = -prices[0];
 
     for (let i = 1; i < len; i++) {
+        // 没有操作 （其实我们也可以不设置这个状态）
         dp[i][0] = dp[i - 1][0];
+        // 第一次持有股票
         dp[i][1] = Math.max(dp[i - 1][1], dp[i - 1][0] - prices[i]);
+        // 第一次不持有股票
         dp[i][2] = Math.max(dp[i - 1][2], dp[i - 1][1] + prices[i]);
+        // 第二次持有股票
         dp[i][3] = Math.max(dp[i - 1][3], dp[i - 1][2] - prices[i]);
+        // 第二次不持有股票
         dp[i][4] = Math.max(dp[i - 1][4], dp[i - 1][3] + prices[i]);
     }
 
@@ -87,7 +94,7 @@ console.log(maxProfit(prices1))
 console.log(maxProfit(prices2))
 console.log(maxProfit(prices3))
 console.log(maxProfit(prices4))
-console.log(maxProfit1(prices1))
-console.log(maxProfit1(prices2))
-console.log(maxProfit1(prices3))
-console.log(maxProfit1(prices4))
+// console.log(maxProfit1(prices1))
+// console.log(maxProfit1(prices2))
+// console.log(maxProfit1(prices3))
+// console.log(maxProfit1(prices4))

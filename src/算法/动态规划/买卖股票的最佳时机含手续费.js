@@ -48,7 +48,8 @@ const maxProfit = function(prices, fee) {
 }
 
 const maxProfit1 = (prices, fee) => {
-    let dp = Array.from(Array(prices.length), () => Array(2).fill(0));
+    // * dp[i][0] 表示第i天持有股票所省最多现金。 dp[i][1] 表示第i天不持有股票所得最多现金
+    let dp = Array.from(new Array(prices.length), () => new Array(2).fill(0));
     // 持股票
     dp[0][0] = 0 - prices[0];
 

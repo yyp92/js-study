@@ -21,14 +21,25 @@
  *  0 <= prices.length <= 1000
  *  0 <= prices[i] <= 1000
  */
+
+/**
+ * * j的状态表示为：
+ *  * 0 表示不操作
+ *  * 1 第一次买入
+ *  * 2 第一次卖出
+ *  * 3 第二次买入
+ *  * 4 第二次卖出
+ *  * .....
+ */
 // 方法一：动态规划
-const maxProfit = (k,prices) => {
+const maxProfit = (k, prices) => {
+    // * dp[i][j] ：第i天的状态为j，所剩下的最大现金是dp[i][j]
     if (prices == null || prices.length < 2 || k == 0) {
         return 0;
     }
     
     // 初始化
-    let dp = Array.from(Array(prices.length), () => Array(2 * k + 1).fill(0));
+    let dp = Array.from(new Array(prices.length), () => new Array(2 * k + 1).fill(0));
 
     // k为偶数是卖出
     for (let j = 1; j < 2 * k; j += 2) {
@@ -36,12 +47,12 @@ const maxProfit = (k,prices) => {
     }
     
     for (let i = 1; i < prices.length; i++) {
-        for (let j = 0; j < 2 * k; j += 2) {
+        for (let j = 0; j < 2 * k - 1; j += 2) {
             // 第i天买入
-            dp[i][j+1] = Math.max(dp[i-1][j+1], dp[i-1][j] - prices[i]);
+            dp[i][j + 1] = Math.max(dp[i - 1][j + 1], dp[i - 1][j] - prices[i]);
 
             // 第i天卖出
-            dp[i][j+2] = Math.max(dp[i-1][j+2], dp[i-1][j+1] + prices[i]);
+            dp[i][j + 2] = Math.max(dp[i - 1][j + 2], dp[i - 1][j + 1] + prices[i]);
         }
     }
 
@@ -50,28 +61,29 @@ const maxProfit = (k,prices) => {
 
 // 方法二：动态规划+空间优化
 const maxProfit1 = function(k, prices) {
+    // * dp[j]: 每天的状态为j，所剩下的最大现金是dp[j]
     let n = prices.length;
     let dp = new Array(2 * k + 1).fill(0);
 
-    // dp 买入状态初始化
-    for (let i = 1; i <= 2*k; i += 2) {
+    // dp 持有状态初始化
+    for (let i = 1; i <= 2 * k; i += 2) {
         dp[i] = - prices[0];
     }
 
     for (let i = 1; i < n; i++) {
         for (let j = 1; j < 2 * k + 1; j++) {
-            // j 为奇数：买入状态
+            // j 为奇数：持有状态
             if (j % 2) {
-                dp[j] = Math.max(dp[j], dp[j-1] - prices[i]);
+                dp[j] = Math.max(dp[j], dp[j - 1] - prices[i]);
             }
             else {
-                // j为偶数：卖出状态
-                dp[j] = Math.max(dp[j], dp[j-1] + prices[i]);
+                // j为偶数：不持有状态
+                dp[j] = Math.max(dp[j], dp[j - 1] + prices[i]);
             }
         }
     }
 
-    return dp[2*k];
+    return dp[2 * k];
 };
 
 
