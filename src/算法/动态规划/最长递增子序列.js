@@ -23,7 +23,7 @@ const lengthOfLIS = (nums) => {
     
     // dp[i]: 前i个元素中，以nums[i]结尾，最长子序列的长度
     // 初始化，所有的元素都应该初始化为1
-    let dp = Array(nums.length).fill(1);
+    let dp = new Array(nums.length).fill(1);
     let result = 1;
 
     for (let i = 1; i < nums.length; i++) {
