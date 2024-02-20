@@ -51,6 +51,7 @@ const findLength1 = (nums1, nums2) => {
 
     let res = 0;
     for (let i = 1; i <= len1; i++) {
+        // 此时遍历B数组的时候，就要从后向前遍历，这样避免重复覆盖。
         for (let j = len2; j > 0; j--) {
             if (nums1[i - 1] === nums2[j - 1]) {
                 dp[j] = dp[j - 1] + 1;

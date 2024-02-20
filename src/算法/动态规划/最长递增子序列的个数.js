@@ -17,7 +17,8 @@
  * 时间复杂度：O(n^2)
  * 空间复杂度：O(n)
  */
-var findNumberOfLIS = function(nums) {
+const findNumberOfLIS = function(nums) {
+
     const len = nums.length;
 
     if (len <= 1) return len;
