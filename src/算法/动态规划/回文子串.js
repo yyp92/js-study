@@ -33,6 +33,7 @@ const countSubstrings1 = (s) => {
     let dp = Array.from(new Array(strLen), () => new Array(strLen).fill(false));
 
     for (let i = strLen - 1; i >= 0; i--) {
+        // * 注意因为dp[i][j]的定义，所以j一定是大于等于i的，那么在填充dp[i][j]的时候一定是只填充右上半部分
         for (let j = i; j < strLen; j++) {
             // 当两端字母一样时，才可以两端收缩进一步判断
             if (s[i] === s[j]) {

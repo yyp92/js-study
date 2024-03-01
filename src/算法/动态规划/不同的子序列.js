@@ -12,7 +12,7 @@
  */
 
 const numDistinct = (s, t) => {
-    // * dp[i][j]：以i-1为结尾的s子序列中出现以j-1为结尾的t的个数为dp[i][j]
+    // * dp[i][j]：以 i-1 为结尾的s子序列中出现以 j-1 为结尾的t的个数为dp[i][j]
 
     // 初始化
     let dp = Array.from(new Array(s.length + 1), () => new Array(t.length + 1).fill(0));

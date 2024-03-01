@@ -12,9 +12,15 @@
  *  1 <= s.length <= 1000
  *  s 只包含小写英文字母
  */
+
+/**
+ * 时间复杂度: O(n^2)
+ * 空间复杂度: O(n^2)
+ */
 const longestPalindromeSubseq = (s) => {
+    // * dp[i][j]：字符串s在[i, j]范围内最长的回文子序列的长度为dp[i][j]。
     const strLen = s.length;
-    let dp = Array.from(Array(strLen), () => Array(strLen).fill(0));
+    let dp = Array.from(new Array(strLen), () => new Array(strLen).fill(0));
     
     // 初始化
     for (let i = 0; i < strLen; i++) {
