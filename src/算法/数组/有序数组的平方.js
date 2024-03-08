@@ -9,7 +9,7 @@
  * 示例 2： 输入：nums = [-7,-3,2,3,11] 输出：[4,9,9,49,121]
  */
 
-var sortedSquares = function(nums) {
+const sortedSquares = function(nums) {
     let n = nums.length;
     let res = new Array(n).fill(0);
     let i = 0
