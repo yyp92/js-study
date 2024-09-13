@@ -37,7 +37,7 @@ const numIslands = function (grid) {
             }
         }
     }
-    let visited = new Array(grid.length).fill().map(() => Array(grid[0].length).fill(false))
+    let visited = new Array(grid.length).fill().map(() => new Array(grid[0].length).fill(false))
 
     let res = 0
     for (let i = 0; i < grid.length; i++) {
