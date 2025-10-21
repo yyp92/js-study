@@ -123,28 +123,23 @@ function dfs(graph, x,  n){
 }
 
 const handleResult = async function() {
-    try {
-        // 创建邻接矩阵，初始化邻接矩阵
-        await initGraph();
+    // 创建邻接矩阵，初始化邻接矩阵
+    await initGraph();
 
-        // 从节点1开始深度搜索
-        path.push(1);
+    // 从节点1开始深度搜索
+    path.push(1);
 
-        // 深度搜索
-        dfs(graph, 1, N)
+    // 深度搜索
+    dfs(graph, 1, N)
 
-        // 输出
-        if (result.length > 0) {
-            result.forEach(i => {
-                console.log(i.join(' '))
-            })
-        }
-        else {
-            console.log(-1)
-        }
+    // 输出
+    if (result.length > 0) {
+        result.forEach(i => {
+            console.log(i.join(' '))
+        })
     }
-    catch (error) {
-        console.log('---error', error)
+    else {
+        console.log(-1)
     }
 }
 handleResult()
@@ -192,28 +187,23 @@ async function dfs(graph, x, n) {
 }
 
 const handleResult1 = async function() {
-    try {
-        // 创建邻接矩阵，初始化邻接矩阵
-        await initGraph1();
+    // 创建邻接矩阵，初始化邻接矩阵
+    await initGraph1();
 
-        // 从节点1开始深度搜索
-        path1.push(1);
+    // 从节点1开始深度搜索
+    path1.push(1);
 
-        // 深度搜索
-        dfs(graph1, 1, N1)
+    // 深度搜索
+    dfs(graph1, 1, N1)
 
-        // 输出
-        if (result1.length > 0) {
-            result1.forEach(i => {
-                console.log(i.join(' '))
-            })
-        }
-        else {
-            console.log(-1)
-        }
+    // 输出
+    if (result1.length > 0) {
+        result1.forEach(i => {
+            console.log(i.join(' '))
+        })
     }
-    catch (error) {
-        console.log('---error', error)
+    else {
+        console.log(-1)
     }
 }
 handleResult1()
