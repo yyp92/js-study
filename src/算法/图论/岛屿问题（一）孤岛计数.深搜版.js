@@ -80,9 +80,7 @@ const dfs = (graph, visited, x, y) => {
         const nexty = y + dir[i][1]
 
         // 坐标越界了，直接跳过
-        if (nextx < 0 || nextx >= N || nexty < 0 || nexty >= M) {
-            continue
-        }
+        if (nextx < 0 || nextx >= N || nexty < 0 || nexty >= M) continue
 
         // 如果节点没被访问过 同时是陆地的
         if (!visited[nextx][nexty] && graph[nextx][nexty] === 1) {
